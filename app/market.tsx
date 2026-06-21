@@ -40,6 +40,7 @@ export default function MarketScreen() {
   const [mode, setMode] = useState<Mode>("archetype");
   const [filterValue, setFilterValue] = useState<string | null>(null);
   const [matchFilter, setMatchFilter] = useState<"matched" | "unmatched" | "all">("matched");
+  const [showDups, setShowDups] = useState(false); // false = 1 vignette/carte (dédup), true = toutes les offres
   const [wished, setWished] = useState<Set<string>>(new Set());
 
   const toggleWish = async (card: MarketCard) => {
@@ -95,28 +96,29 @@ export default function MarketScreen() {
     const pass = (c: MarketCard) => !q || c.name.toLowerCase().includes(q);
     const matched = dataset.cards.filter((c) => c.isMatched && pass(c));
     const out: Section[] = [];
+    const dd = (arr: MarketCard[]) => (showDups ? arr : dedupeByName(arr)); // toggle "Doublons"
 
     if (matchFilter !== "unmatched") {
       if (mode === "archetype") {
         for (const a of archetypes) {
           if (filterValue && filterValue !== a.name) continue;
-          const cards = dedupeByName(matched.filter((c) => c.matched!.archetypes.includes(a.name)));
+          const cards = dd(matched.filter((c) => c.matched!.archetypes.includes(a.name)));
           if (cards.length) out.push({ key: "a:" + a.name, title: a.name, cards });
         }
       } else {
         for (const ch of characters) {
           if (filterValue && filterValue !== ch.id) continue;
-          const cards = dedupeByName(matched.filter((c) => c.matched!.characters.includes(ch.id)));
+          const cards = dd(matched.filter((c) => c.matched!.characters.includes(ch.id)));
           if (cards.length) out.push({ key: "c:" + ch.id, title: ch.name, cards });
         }
       }
     }
     if (matchFilter !== "matched" && !filterValue) {
-      const unmatched = dedupeByName(dataset.cards.filter((c) => !c.isMatched && pass(c)));
+      const unmatched = dd(dataset.cards.filter((c) => !c.isMatched && pass(c)));
       if (unmatched.length) out.push({ key: "unmatched", title: "Non liées", cards: unmatched });
     }
     return out;
-  }, [dataset, query, mode, filterValue, matchFilter, archetypes, characters]);
+  }, [dataset, query, mode, filterValue, matchFilter, showDups, archetypes, characters]);
 
   // Aplatissement en rangées (en-tête | rangée de 3 cartes) pour virtualiser toute la liste
   // → seules les rangées visibles se rendent (les images chargent au scroll).
@@ -200,6 +202,13 @@ export default function MarketScreen() {
               <Text className={`text-xs font-bold ${matchFilter === "all" ? "text-gray-300" : "text-ygo-bg"}`}>
                 {matchFilter === "matched" ? "Liées" : matchFilter === "unmatched" ? "Non liées" : "Toutes"}
               </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              className={`px-3 py-3 rounded-xl border ${showDups ? "bg-ygo-gold border-ygo-gold-bright" : "bg-ygo-card border-ygo-muted"}`}
+              onPress={() => setShowDups((v) => !v)}
+              activeOpacity={0.8}
+            >
+              <Text className={`text-xs font-bold ${showDups ? "text-ygo-bg" : "text-gray-300"}`}>Doublons</Text>
             </TouchableOpacity>
           </View>
 
