@@ -1,0 +1,205 @@
+{
+  "version": 2,
+  "lastUpdated": "2026-03-19",
+  "archetypeMap": {
+    "Egyptian God": [
+      { "characterId": "yami-yugi", "context": "Yugi utilise Slifer et Obelisk" },
+      { "characterId": "seto-kaiba", "context": "Kaiba utilise Obelisk le Tourmenteur" },
+      { "characterId": "yami-marik", "context": "Marik utilise Le Dragon Ailé de Râ" }
+    ],
+    "Dark Magician": [
+      { "characterId": "yami-yugi", "context": "Archétype signature de Yugi" },
+      { "characterId": "arkana", "context": "Arkana utilise aussi le Magicien Sombre" }
+    ],
+    "Magician Girl": [
+      { "characterId": "yami-yugi", "context": "Dark Magician Girl, archétype lié à Yugi" }
+    ],
+    "Exodia": [
+      { "characterId": "yami-yugi", "context": "Exodia est utilisé par Yugi dans l'anime" }
+    ],
+    "Gandora": [
+      { "characterId": "yugi", "context": "Gandora est utilisé par Yugi (saison 5)" }
+    ],
+    "Silent Magician": [
+      { "characterId": "yugi", "context": "Silent Magician utilisé par Yugi" }
+    ],
+    "Silent Swordsman": [
+      { "characterId": "yugi", "context": "Silent Swordsman utilisé par Yugi" }
+    ],
+    "Legendary Knight": [
+      { "characterId": "yami-yugi", "context": "Chevaliers Légendaires (arc Dartz)" }
+    ],
+    "Blue-Eyes": [
+      { "characterId": "seto-kaiba", "context": "Archétype signature de Kaiba" }
+    ],
+    "ABC": [
+      { "characterId": "seto-kaiba", "context": "Machines Union XYZ de Kaiba" },
+      { "characterId": "chazz-princeton", "context": "Machines Union VWXYZ de Chazz (GX)" }
+    ],
+    "Red-Eyes": [
+      { "characterId": "joey-wheeler", "context": "Archétype signature de Joey" },
+      { "characterId": "nightshroud", "context": "Nightshroud utilise Red-Eyes Darkness Dragon" }
+    ],
+    "Jinzo": [
+      { "characterId": "joey-wheeler", "context": "Joey utilise Jinzo dans l'anime" },
+      { "characterId": "espa-roba", "context": "Espa Roba utilise aussi Jinzo" }
+    ],
+    "Harpie": [
+      { "characterId": "mai-valentine", "context": "Archétype signature de Mai" }
+    ],
+    "Amazoness": [
+      { "characterId": "mai-valentine", "context": "Deck Amazoness de Mai (Bataille Ville)" },
+      { "characterId": "tania", "context": "Tania utilise les Amazoness (GX)" }
+    ],
+    "Toon": [
+      { "characterId": "pegasus", "context": "Archétype signature de Pegasus" }
+    ],
+    "Kuriboh": [
+      { "characterId": "yami-yugi", "context": "Kuriboh est emblématique de Yugi" },
+      { "characterId": "jaden-yuki", "context": "Jaden utilise Winged Kuriboh" }
+    ],
+    "Gravekeeper's": [
+      { "characterId": "ishizu", "context": "Ishizu utilise les Gravekeeper's" },
+      { "characterId": "odion", "context": "Odion utilise aussi les Gravekeeper's" }
+    ],
+    "Temple of the Kings": [
+      { "characterId": "odion", "context": "Temple of the Kings est lié à Odion" }
+    ],
+    "Parasite": [
+      { "characterId": "weevil", "context": "Parasite Paracide de Weevil" }
+    ],
+    "Indestructible Insect": [
+      { "characterId": "weevil", "context": "Cartes insecte de Weevil" }
+    ],
+    "Umi": [
+      { "characterId": "mako", "context": "Archétype Umi de Mako Tsunami" }
+    ],
+    "Metalmorph": [
+      { "characterId": "bandit-keith", "context": "Metalmorph de Bandit Keith" }
+    ],
+    "Gate Guardian": [
+      { "characterId": "paradox-brothers", "context": "Gate Guardian des Frères Paradox" }
+    ],
+    "Labyrinth Wall": [
+      { "characterId": "paradox-brothers", "context": "Labyrinth des Frères Paradox" }
+    ],
+    "Mask": [
+      { "characterId": "lumis-umbra", "context": "Cartes Masque de Lumis & Umbra" }
+    ],
+    "Archfiend": [
+      { "characterId": "titan", "context": "Titan utilise les Archfiend (GX)" }
+    ],
+    "Dark Scorpion": [
+      { "characterId": "don-zaloog", "context": "Dark Scorpion de Don Zaloog" }
+    ],
+    "Vampire": [
+      { "characterId": "camula", "context": "Camula utilise les Vampire (GX)" }
+    ],
+    "Valkyrie": [
+      { "characterId": "zigfried", "context": "Archétype signature de Zigfried" }
+    ],
+    "Elemental HERO": [
+      { "characterId": "jaden-yuki", "context": "Archétype signature de Jaden" }
+    ],
+    "HERO": [
+      { "characterId": "jaden-yuki", "context": "Archétype HERO lié à Jaden" },
+      { "characterId": "aster-phoenix", "context": "Aster utilise les Destiny HERO" }
+    ],
+    "Evil HERO": [
+      { "characterId": "supreme-king", "context": "Evil HERO du Roi Suprême (Jaden possédé)" }
+    ],
+    "Neo-Spacian": [
+      { "characterId": "jaden-yuki", "context": "Neo-Spacians de Jaden (saison 2+)" }
+    ],
+    "Neos": [
+      { "characterId": "jaden-yuki", "context": "Elemental HERO Neos, carte clé de Jaden" }
+    ],
+    "Destiny HERO": [
+      { "characterId": "aster-phoenix", "context": "Archétype signature d'Aster" }
+    ],
+    "Vision HERO": [
+      { "characterId": "aster-phoenix", "context": "Archétype lié à Aster" }
+    ],
+    "Masked HERO": [
+      { "characterId": "jaden-yuki", "context": "Masked HERO liés à Jaden (manga)" }
+    ],
+    "Cyber Dragon": [
+      { "characterId": "zane-truesdale", "context": "Archétype signature de Zane" }
+    ],
+    "Cyber": [
+      { "characterId": "zane-truesdale", "context": "Archétype Cyber lié à Zane" }
+    ],
+    "Cyberdark": [
+      { "characterId": "zane-truesdale", "context": "Cyberdark utilisés par Zane (Hell Kaiser)" }
+    ],
+    "Cyber Angel": [
+      { "characterId": "alexis-rhodes", "context": "Archétype Cyber Angel d'Alexis" }
+    ],
+    "Ojama": [
+      { "characterId": "chazz-princeton", "context": "Archétype signature de Chazz" }
+    ],
+    "Armed Dragon": [
+      { "characterId": "chazz-princeton", "context": "Armed Dragon utilisés par Chazz" }
+    ],
+    "Roid": [
+      { "characterId": "syrus-truesdale", "context": "Archétype Roid de Syrus" }
+    ],
+    "Vehicroid": [
+      { "characterId": "syrus-truesdale", "context": "Super Vehicroid de Syrus" }
+    ],
+    "Speedroid": [
+      { "characterId": "syrus-truesdale", "context": "Archétype Roid étendu (lié à Syrus)" }
+    ],
+    "Crystal Beast": [
+      { "characterId": "jesse-anderson", "context": "Archétype signature de Jesse" }
+    ],
+    "Advanced Crystal Beast": [
+      { "characterId": "jesse-anderson", "context": "Crystal Beast avancés de Jesse" }
+    ],
+    "Volcanic": [
+      { "characterId": "axel-brodie", "context": "Archétype signature d'Axel" }
+    ],
+    "Ancient Gear": [
+      { "characterId": "crowler", "context": "Archétype signature de Crowler" }
+    ],
+    "Arcana Force": [
+      { "characterId": "sartorius", "context": "Archétype signature de Sartorius" }
+    ],
+    "Yubel": [
+      { "characterId": "yubel", "context": "Archétype signature de Yubel" }
+    ],
+    "Sacred Beast": [
+      { "characterId": "kagemaru", "context": "Bêtes Sacrées de Kagemaru" }
+    ],
+    "Cloudian": [
+      { "characterId": "adrian-gecko", "context": "Adrian Gecko utilise les Cloudian" }
+    ],
+    "Venom": [
+      { "characterId": "adrian-gecko", "context": "Adrian Gecko utilise aussi les Venom" }
+    ],
+    "Gladiator Beast": [
+      { "characterId": "tania", "context": "Tania utilise les Gladiator Beast" }
+    ],
+    "Bonding": [
+      { "characterId": "bastion-misawa", "context": "Cartes Bonding de Bastion (chimie)" }
+    ],
+    "Koala": [
+      { "characterId": "chumley", "context": "Chumley utilise les Koala" }
+    ],
+    "Goblin": [
+      { "characterId": "joey-wheeler", "context": "Joey utilise les Unités Gobelines" }
+    ],
+    "Destruction Sword": [
+      { "characterId": "yami-yugi", "context": "Buster Blader, lié à Yugi dans l'anime" }
+    ],
+    "Fossil": [
+      { "characterId": "jim-crocodile-cook", "context": "Jim Crocodile Cook utilise les Fossil (GX)" }
+    ],
+    "Slime": [
+      { "characterId": "strings", "context": "Strings utilise Revival Jam et les Slime" }
+    ],
+    "Face Card Knights": [
+      { "characterId": "yami-yugi", "context": "Yugi utilise King's Knight, Queen's Knight, Jack's Knight" }
+    ]
+  }
+}
