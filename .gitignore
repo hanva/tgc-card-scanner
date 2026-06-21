@@ -30,7 +30,8 @@ yarn-error.*
 .DS_Store
 *.pem
 
-# local env files
+# local env files (clé API du Marché) — .env.example reste suivi
+.env
 .env*.local
 
 # typescript

@@ -7,9 +7,10 @@
  */
 import { MarketDataset, MarketCard } from "./market";
 
-// Prod : VPS IONOS derrière Cloudflare (DNS only). Dev local : "http://192.168.1.21:8787".
-export const API_BASE: string = "https://ygo-api.tran-nicolas.com";
-export const API_KEY: string = ""; // TODO: coller la clé API générée sur le VPS (openssl rand -hex 24) puis rebuild
+// Config via .env (EXPO_PUBLIC_*, non commité) → la clé API ne part PAS dans git.
+// Fallback : URL de prod / clé vide. Dev local : EXPO_PUBLIC_MARKET_API_BASE=http://192.168.1.21:8787
+export const API_BASE: string = process.env.EXPO_PUBLIC_MARKET_API_BASE || "https://ygo-api.tran-nicolas.com";
+export const API_KEY: string = process.env.EXPO_PUBLIC_MARKET_API_KEY || "";
 
 function headers(): Record<string, string> {
   const h: Record<string, string> = { "Content-Type": "application/json" };
