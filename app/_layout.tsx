@@ -24,6 +24,7 @@ export default function RootLayout() {
           <Stack.Screen name="scan" options={{ title: "Scanner" }} />
           <Stack.Screen name="search" options={{ title: "Recherche" }} />
           <Stack.Screen name="market" options={{ title: "Marché" }} />
+          <Stack.Screen name="wishlist" options={{ title: "Wishlist" }} />
           <Stack.Screen name="collection" options={{ title: "Ma Collection" }} />
           <Stack.Screen name="card/[id]" options={{ title: "Carte" }} />
           <Stack.Screen name="character/[id]" options={{ title: "Profil", headerShown: false }} />

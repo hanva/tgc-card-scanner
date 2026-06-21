@@ -84,3 +84,43 @@ export async function postMeta(
     });
   } catch {}
 }
+
+// ─── Wishlist (interne, exportable en "Add Deck List" cardmarket) ───
+
+export interface WishItem {
+  id: string; name: string; image: string | null; expansionCode: string | null;
+  price: number | null; offerUrl: string | null; seller: string | null; addedAt: string;
+}
+
+export async function listWish(): Promise<WishItem[]> {
+  try {
+    const r = await fetch(`${API_BASE}/wishlist`, { headers: headers() });
+    return r.ok ? await r.json() : [];
+  } catch {
+    return [];
+  }
+}
+
+export async function addWish(card: {
+  name: string; image?: string; expansionCode?: string; price?: number | null; offerUrl?: string; seller?: string;
+}): Promise<void> {
+  try {
+    await fetch(`${API_BASE}/wishlist`, { method: "POST", headers: headers(), body: JSON.stringify(card) });
+  } catch {}
+}
+
+export async function removeWish(id: string): Promise<void> {
+  try {
+    await fetch(`${API_BASE}/wishlist/${encodeURIComponent(id)}`, { method: "DELETE", headers: headers() });
+  } catch {}
+}
+
+/** Texte au format cardmarket "Add Deck List" (1 carte/ligne, découpé par 150). */
+export async function getWishExport(): Promise<string> {
+  try {
+    const r = await fetch(`${API_BASE}/wishlist/export`, { headers: headers() });
+    return r.ok ? await r.text() : "";
+  } catch {
+    return "";
+  }
+}

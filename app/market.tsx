@@ -2,7 +2,7 @@ import { useCallback, useMemo, useState } from "react";
 import { View, Text, TextInput, FlatList, ScrollView, TouchableOpacity, ActivityIndicator, useWindowDimensions } from "react-native";
 import { useRouter, useLocalSearchParams, useFocusEffect } from "expo-router";
 import { archetypesSorted, charactersSorted, norm, MarketCard, MarketDataset } from "../src/services/market";
-import { listSellers, getDataset, SellerSummary } from "../src/services/marketApi";
+import { listSellers, getDataset, listWish, addWish, removeWish, SellerSummary } from "../src/services/marketApi";
 import { MarketCardTile } from "../src/components/MarketCardTile";
 import { useScan } from "../src/services/scanController";
 
@@ -40,15 +40,34 @@ export default function MarketScreen() {
   const [mode, setMode] = useState<Mode>("archetype");
   const [filterValue, setFilterValue] = useState<string | null>(null);
   const [matchFilter, setMatchFilter] = useState<"matched" | "unmatched" | "all">("matched");
+  const [wished, setWished] = useState<Set<string>>(new Set());
+
+  const toggleWish = async (card: MarketCard) => {
+    const id = norm(card.name);
+    const next = new Set(wished);
+    if (next.has(id)) {
+      next.delete(id);
+      setWished(next);
+      await removeWish(id);
+    } else {
+      next.add(id);
+      setWished(next);
+      await addWish({
+        name: card.name, image: card.image, expansionCode: card.expansionCode,
+        price: card.price, offerUrl: card.offerUrl, seller: dataset?.seller,
+      });
+    }
+  };
 
   useFocusEffect(
     useCallback(() => {
       let active = true;
       (async () => {
         setLoading(true);
-        const list = await listSellers();
+        const [list, wl] = await Promise.all([listSellers(), listWish()]);
         if (!active) return;
         setSellers(list);
+        setWished(new Set(wl.map((w) => w.id)));
         const target = params.seller || dataset?.seller || list[0]?.seller;
         if (target) {
           const d = await getDataset(target);
@@ -143,6 +162,9 @@ export default function MarketScreen() {
           <TouchableOpacity className="px-3 py-2 rounded-full bg-ygo-gold border border-ygo-gold-bright" onPress={() => scan.show()} activeOpacity={0.8}>
             <Text className="text-ygo-bg text-xs font-bold">{scan.active ? "▸ Voir le scan" : "＋ Scanner"}</Text>
           </TouchableOpacity>
+          <TouchableOpacity className="px-3 py-2 rounded-full bg-ygo-card border border-ygo-gold" onPress={() => router.push("/wishlist")} activeOpacity={0.8}>
+            <Text className="text-ygo-gold text-xs font-bold">★ Wishlist{wished.size ? ` (${wished.size})` : ""}</Text>
+          </TouchableOpacity>
         </ScrollView>
       </View>
 
@@ -213,7 +235,13 @@ export default function MarketScreen() {
               ) : (
                 <View style={{ flexDirection: "row", gap: GAP, marginBottom: GAP }}>
                   {item.cards.map((c, i) => (
-                    <MarketCardTile key={c.articleId || `${c.name}-${i}`} card={c} width={tileW} />
+                    <MarketCardTile
+                      key={c.articleId || `${c.name}-${i}`}
+                      card={c}
+                      width={tileW}
+                      wished={wished.has(norm(c.name))}
+                      onToggleWish={toggleWish}
+                    />
                   ))}
                 </View>
               )

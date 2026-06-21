@@ -5,6 +5,8 @@ import { MarketCard } from "../services/market";
 interface Props {
   card: MarketCard;
   width: number;
+  wished?: boolean;
+  onToggleWish?: (card: MarketCard) => void;
 }
 
 // L'image cardmarket est protégée (hotlink) → on tente avec un Referer cardmarket,
@@ -12,7 +14,7 @@ interface Props {
 const IMG_HEADERS = { Referer: "https://www.cardmarket.com/" };
 const CARD_BACK = "https://images.ygoprodeck.com/images/cards/back_high.jpg";
 
-export function MarketCardTile({ card, width }: Props) {
+export function MarketCardTile({ card, width, wished, onToggleWish }: Props) {
   const [failed, setFailed] = useState(false);
   const open = () => {
     if (card.offerUrl) Linking.openURL(card.offerUrl).catch(() => {});
@@ -29,6 +31,15 @@ export function MarketCardTile({ card, width }: Props) {
           className="w-full aspect-[59/86] rounded-lg"
           onError={() => setFailed(true)}
         />
+        {onToggleWish && (
+          <TouchableOpacity
+            onPress={() => onToggleWish(card)}
+            hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
+            style={{ position: "absolute", top: 4, right: 4, backgroundColor: "rgba(13,13,26,0.65)", borderRadius: 14, width: 28, height: 28, alignItems: "center", justifyContent: "center" }}
+          >
+            <Text style={{ fontSize: 15, color: wished ? "#ffd700" : "#e6e6e6" }}>{wished ? "★" : "☆"}</Text>
+          </TouchableOpacity>
+        )}
       </View>
       <Text className="text-[10px] mt-1 text-center text-gray-300" numberOfLines={2}>{card.name}</Text>
       <Text className="text-[10px] text-center text-gray-500" numberOfLines={1}>
