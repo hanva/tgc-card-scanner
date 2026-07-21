@@ -1,7 +1,8 @@
 import { useCallback, useState } from "react";
-import { View, Text, FlatList, TouchableOpacity, ActivityIndicator, Share, useWindowDimensions } from "react-native";
+import { View, Text, FlatList, TouchableOpacity, ActivityIndicator, useWindowDimensions } from "react-native";
+import * as Clipboard from "expo-clipboard";
 import { useFocusEffect } from "expo-router";
-import { listWish, removeWish, getWishExport, WishItem } from "../src/services/marketApi";
+import { listWish, removeWish, WishItem } from "../src/services/marketApi";
 import { MarketCard } from "../src/services/market";
 import { MarketCardTile } from "../src/components/MarketCardTile";
 
@@ -39,9 +40,21 @@ export default function WishlistScreen() {
     await removeWish(w.id);
   };
 
-  const exportList = async () => {
-    const text = await getWishExport();
-    if (text) Share.share({ message: text });
+  const [copiedIdx, setCopiedIdx] = useState<number | null>(null);
+
+  // Export cardmarket "Add Deck List" : 1 nom/ligne, noms nettoyés (sans variantes entre parenthèses),
+  // dédupliqués, découpés en blocs de 150 (limite cardmarket). Copie directe presse-papier (fiable,
+  // contrairement à Share qui tronquait le texte).
+  const CHUNK = 150;
+  const exportName = (n: string) => (n || "").replace(/\([^)]*\)/g, " ").replace(/\s+/g, " ").trim();
+  const names = [...new Set(items.map((w) => exportName(w.name)).filter(Boolean))];
+  const blocks: string[][] = [];
+  for (let i = 0; i < names.length; i += CHUNK) blocks.push(names.slice(i, i + CHUNK));
+
+  const copyBlock = async (idx: number) => {
+    await Clipboard.setStringAsync(blocks[idx].join("\n"));
+    setCopiedIdx(idx);
+    setTimeout(() => setCopiedIdx((c) => (c === idx ? null : c)), 1800);
   };
 
   const rows: WishItem[][] = [];
@@ -53,19 +66,28 @@ export default function WishlistScreen() {
 
   return (
     <View className="flex-1 bg-ygo-bg">
-      <View className="px-4 pt-3 pb-1 flex-row items-center justify-between">
-        <Text className="text-ygo-gold text-lg font-black">Wishlist ({items.length})</Text>
-        <TouchableOpacity
-          className={`px-4 py-2 rounded-xl ${items.length ? "bg-ygo-gold" : "bg-ygo-muted"}`}
-          onPress={exportList}
-          disabled={!items.length}
-          activeOpacity={0.8}
-        >
-          <Text className={`font-bold text-xs ${items.length ? "text-ygo-bg" : "text-gray-500"}`}>EXPORTER</Text>
-        </TouchableOpacity>
+      <View className="px-4 pt-3 pb-1">
+        <Text className="text-ygo-gold text-lg font-black mb-2">Wishlist ({items.length})</Text>
+        {items.length > 0 && (
+          <View className="flex-row flex-wrap gap-2">
+            {blocks.map((b, i) => (
+              <TouchableOpacity
+                key={i}
+                className={`px-4 py-2 rounded-xl ${copiedIdx === i ? "bg-ygo-gold-bright" : "bg-ygo-gold"}`}
+                onPress={() => copyBlock(i)}
+                activeOpacity={0.8}
+              >
+                <Text className="font-bold text-xs text-ygo-bg">
+                  {copiedIdx === i ? "✓ Copié !" : blocks.length > 1 ? `Copier liste ${i + 1} (${b.length})` : `Copier (${b.length})`}
+                </Text>
+              </TouchableOpacity>
+            ))}
+          </View>
+        )}
       </View>
       <Text className="text-gray-500 text-[11px] px-4 mb-2 leading-4">
-        Export → partage/copie le texte, puis colle dans cardmarket › Mes souhaits › « Add Deck List » (150 cartes max par liste).
+        Copie {blocks.length > 1 ? "chaque liste" : "la liste"}, puis colle dans cardmarket › Mes souhaits › « Add Deck List ».
+        {blocks.length > 1 ? ` cardmarket = 150 cartes max/liste → ${blocks.length} listes à coller une par une.` : ""}
       </Text>
       <FlatList
         data={rows}

@@ -229,6 +229,7 @@ export default function MarketScreen() {
           <FlatList
             data={rows}
             keyExtractor={(r) => r.key}
+            extraData={wished}
             contentContainerStyle={{ padding: H_PAD, paddingBottom: 32 }}
             ListEmptyComponent={<Text className="text-gray-500 text-center mt-10">Aucune carte.</Text>}
             initialNumToRender={8}

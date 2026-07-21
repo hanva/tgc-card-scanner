@@ -12,10 +12,16 @@ import { MarketDataset, MarketCard } from "./market";
 export const API_BASE: string = process.env.EXPO_PUBLIC_MARKET_API_BASE || "https://ygo-api.tran-nicolas.com";
 export const API_KEY: string = process.env.EXPO_PUBLIC_MARKET_API_KEY || "";
 
+// Auth uniquement. PAS de Content-Type ici : sur un DELETE/GET sans body, Fastify rejette
+// (400 FST_ERR_CTP_EMPTY_JSON_BODY) si Content-Type: application/json est présent → la requête
+// n'aboutit jamais. Le Content-Type est ajouté seulement sur les POST (qui ont un body JSON).
 function headers(): Record<string, string> {
-  const h: Record<string, string> = { "Content-Type": "application/json" };
+  const h: Record<string, string> = {};
   if (API_KEY) h["X-API-Key"] = API_KEY;
   return h;
+}
+function jsonHeaders(): Record<string, string> {
+  return { ...headers(), "Content-Type": "application/json" };
 }
 
 export interface SellerSummary {
@@ -66,7 +72,7 @@ export async function ingestCards(seller: string, cards: MarketCard[]): Promise<
   try {
     await fetch(`${API_BASE}/sellers/${encodeURIComponent(seller)}/cards`, {
       method: "POST",
-      headers: headers(),
+      headers: jsonHeaders(),
       body: JSON.stringify({ cards }),
     });
   } catch {}
@@ -79,7 +85,7 @@ export async function postMeta(
   try {
     await fetch(`${API_BASE}/sellers/${encodeURIComponent(seller)}/meta`, {
       method: "POST",
-      headers: headers(),
+      headers: jsonHeaders(),
       body: JSON.stringify(meta),
     });
   } catch {}
@@ -105,7 +111,7 @@ export async function addWish(card: {
   name: string; image?: string; expansionCode?: string; price?: number | null; offerUrl?: string; seller?: string;
 }): Promise<void> {
   try {
-    await fetch(`${API_BASE}/wishlist`, { method: "POST", headers: headers(), body: JSON.stringify(card) });
+    await fetch(`${API_BASE}/wishlist`, { method: "POST", headers: jsonHeaders(), body: JSON.stringify(card) });
   } catch {}
 }
 
