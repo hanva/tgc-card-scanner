@@ -13,6 +13,8 @@ import { getStoredCard, storeCard } from "../../src/services/cardStore";
 import { YgoCard } from "../../src/types/card";
 import { EpisodeAppearance } from "../../src/types/character";
 import { Arc, getArcsForSeries, getArcForEpisode } from "../../src/utils/arcs";
+import { useWishlist } from "../../src/hooks/useWishlist";
+import { FavStar } from "../../src/components/FavStar";
 
 const cardEpisodes = cardEpisodesRaw as Record<
   string,
@@ -30,6 +32,7 @@ interface CardWithArc {
 export default function CharacterProfileScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const router = useRouter();
+  const { isWished, toggle, wished } = useWishlist();
   const insets = useSafeAreaInsets();
   const [selectedArc, setSelectedArc] = useState<string>("all");
   const [cards, setCards] = useState<CardWithArc[]>([]);
@@ -215,17 +218,20 @@ export default function CharacterProfileScreen() {
         data={filteredCards}
         numColumns={3}
         keyExtractor={(item) => String(item.cardId)}
+        extraData={wished}
         contentContainerStyle={{ padding: 8 }}
         columnWrapperStyle={{ gap: 8 }}
         ItemSeparatorComponent={() => <View className="h-2" />}
-        renderItem={({ item }) => (
+        renderItem={({ item }) => {
+          const wished = isWished(item.cardName);
+          return (
           <TouchableOpacity
             className="flex-1"
             style={{ maxWidth: "33%" }}
             activeOpacity={0.7}
             onPress={() => router.push({ pathname: `/card/${item.cardId}`, params: { from: "collection" } })}
           >
-            <View className={`rounded-lg overflow-hidden ${item.owned ? "" : "opacity-30"}`}>
+            <View className={`rounded-lg overflow-hidden ${item.owned ? "" : "opacity-30"} ${wished ? "border-2 border-ygo-gold-bright" : ""}`}>
               {item.imageUrl ? (
                 <Image
                   source={{ uri: item.imageUrl }}
@@ -237,6 +243,7 @@ export default function CharacterProfileScreen() {
                   className="w-full aspect-[59/86] rounded-lg"
                 />
               )}
+              <FavStar wished={wished} onPress={() => toggle(item.cardName, { image: item.imageUrl })} />
             </View>
             <Text
               className={`text-[10px] mt-1 text-center ${item.owned ? "text-gray-300" : "text-gray-600"}`}
@@ -245,7 +252,8 @@ export default function CharacterProfileScreen() {
               {item.cardName}
             </Text>
           </TouchableOpacity>
-        )}
+          );
+        }}
         ListEmptyComponent={
           <View className="items-center py-10">
             <Text className="text-gray-600 italic">Aucune carte pour cet arc</Text>

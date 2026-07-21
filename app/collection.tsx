@@ -12,6 +12,7 @@ import { CHARACTER_AVATARS } from "../src/services/avatars";
 import { getStoredCard } from "../src/services/cardStore";
 import { getCardsByArchetype } from "../src/services/ygoprodeck";
 import { storeCard } from "../src/services/cardStore";
+import { useWishlist } from "../src/hooks/useWishlist";
 
 type FilterMode = "all" | "character" | "archetype";
 
@@ -32,6 +33,7 @@ interface CharacterGroup {
 export default function CollectionScreen() {
   const router = useRouter();
   const params = useLocalSearchParams<{ archetype?: string }>();
+  const { isWished, toggle, wished, addMany, removeMany } = useWishlist();
   const [entries, setEntries] = useState<CollectionEntry[]>([]);
   const [filter, setFilter] = useState<FilterMode>(params.archetype ? "archetype" : "all");
   const [searchQuery, setSearchQuery] = useState("");
@@ -225,32 +227,60 @@ export default function CollectionScreen() {
         <FlatList
           data={archetypeCards}
           keyExtractor={(item) => String(item.id)}
+          extraData={wished}
+          ListHeaderComponent={() => {
+            const allWished = archetypeCards.length > 0 && archetypeCards.every((c) => isWished(c.name_en || c.name));
+            return (
+              <View className="mx-4 mb-2">
+                <TouchableOpacity
+                  className={`py-2.5 rounded-xl items-center ${allWished ? "bg-ygo-card border border-ygo-gold/50" : "bg-ygo-gold"}`}
+                  onPress={() =>
+                    allWished
+                      ? removeMany(archetypeCards.map((c) => c.name_en || c.name))
+                      : addMany(archetypeCards.map((c) => ({ name: c.name_en || c.name, image: c.card_images?.[0]?.image_url_small })))
+                  }
+                  activeOpacity={0.85}
+                >
+                  <Text className={`text-xs font-bold ${allWished ? "text-ygo-gold" : "text-ygo-bg"}`}>
+                    {allWished ? "★ Tout retirer de la wishlist" : `☆ Tout wishlist (${archetypeCards.length})`}
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            );
+          }}
           renderItem={({ item: card }) => {
             const owned = entries.some((e) => e.cardId === card.id || e.cardName.toLowerCase() === card.name.toLowerCase() || (e.cardNameEn && card.name_en && e.cardNameEn.toLowerCase() === card.name_en.toLowerCase()));
             const imageUrl = card.card_images?.[0]?.image_url_small;
+            const wn = card.name_en || card.name;
+            const wished = isWished(wn);
             return (
-              <TouchableOpacity
-                className={`flex-row bg-ygo-card rounded-xl mb-2 mx-4 p-2.5 items-center ${!owned ? "opacity-40" : ""}`}
-                onPress={() => router.push({ pathname: `/card/${card.id}`, params: { from: "collection" } })}
-                activeOpacity={0.7}
-              >
-                {imageUrl && (
-                  <Image source={{ uri: imageUrl }} className={`w-[45px] h-[66px] rounded ${!owned ? "opacity-50" : ""}`} />
-                )}
-                <View className="flex-1 ml-3">
-                  <Text className={`text-sm font-bold ${owned ? "text-ygo-gold" : "text-gray-600"}`} numberOfLines={1}>
-                    {card.name}
-                  </Text>
-                  {card.name_en && card.name_en !== card.name && (
-                    <Text className="text-gray-500 text-[11px] mt-0.5" numberOfLines={1}>{card.name_en}</Text>
+              <View className="flex-row bg-ygo-card rounded-xl mb-2 mx-4 items-center">
+                <TouchableOpacity
+                  className={`flex-1 flex-row p-2.5 items-center ${!owned ? "opacity-40" : ""}`}
+                  onPress={() => router.push({ pathname: `/card/${card.id}`, params: { from: "collection" } })}
+                  activeOpacity={0.7}
+                >
+                  {imageUrl && (
+                    <Image source={{ uri: imageUrl }} className={`w-[45px] h-[66px] rounded ${!owned ? "opacity-50" : ""} ${wished ? "border-2 border-ygo-gold-bright" : ""}`} />
                   )}
-                </View>
-                {owned && (
-                  <View className="bg-ygo-owned py-1 px-2.5 rounded-xl mr-3">
-                    <Text className="text-ygo-owned-text text-[11px] font-bold">Possédée</Text>
+                  <View className="flex-1 ml-3">
+                    <Text className={`text-sm font-bold ${owned ? "text-ygo-gold" : "text-gray-600"}`} numberOfLines={1}>
+                      {card.name}
+                    </Text>
+                    {card.name_en && card.name_en !== card.name && (
+                      <Text className="text-gray-500 text-[11px] mt-0.5" numberOfLines={1}>{card.name_en}</Text>
+                    )}
                   </View>
-                )}
-              </TouchableOpacity>
+                  {owned && (
+                    <View className="bg-ygo-owned py-1 px-2.5 rounded-xl">
+                      <Text className="text-ygo-owned-text text-[11px] font-bold">Possédée</Text>
+                    </View>
+                  )}
+                </TouchableOpacity>
+                <TouchableOpacity className="px-3.5 py-3" onPress={() => toggle(wn, { image: imageUrl })} activeOpacity={0.7}>
+                  <Text style={{ fontSize: 18, color: wished ? "#ffd700" : "#555" }}>{wished ? "★" : "☆"}</Text>
+                </TouchableOpacity>
+              </View>
             );
           }}
           contentContainerStyle={{ paddingBottom: 20 }}
@@ -262,7 +292,7 @@ export default function CollectionScreen() {
           data={characterGroups()}
           keyExtractor={(item) => item.characterId}
           renderItem={({ item: group }) => (
-            <CharacterGroupCard group={group} router={router} onDecrement={handleDecrement} />
+            <CharacterGroupCard group={group} router={router} onDecrement={handleDecrement} isWished={isWished} onToggleWish={toggle} />
           )}
           contentContainerStyle={{ paddingHorizontal: 16, paddingBottom: 20 }}
         />
@@ -270,14 +300,18 @@ export default function CollectionScreen() {
         <FlatList
           data={filteredEntries}
           keyExtractor={(item) => String(item.cardId)}
-          renderItem={({ item }) => (
+          extraData={wished}
+          renderItem={({ item }) => {
+            const wn = item.cardNameEn || item.cardName;
+            const wished = isWished(wn);
+            return (
             <View className="flex-row bg-ygo-card rounded-xl mb-2 mx-4 items-center">
               <TouchableOpacity
                 className="flex-1 flex-row p-2.5 items-center"
                 onPress={() => router.push({ pathname: `/card/${item.cardId}`, params: { from: "collection" } })}
               >
                 {item.imageUrl && (
-                  <Image source={{ uri: item.imageUrl }} className="w-[45px] h-[66px] rounded" />
+                  <Image source={{ uri: item.imageUrl }} className={`w-[45px] h-[66px] rounded ${wished ? "border-2 border-ygo-gold-bright" : ""}`} />
                 )}
                 <View className="flex-1 ml-3">
                   <Text className="text-ygo-gold text-sm font-bold" numberOfLines={1}>{item.cardName}</Text>
@@ -287,11 +321,15 @@ export default function CollectionScreen() {
                   <Text className="text-gray-600 text-[11px] mt-1">Scanné {item.scanCount}x</Text>
                 </View>
               </TouchableOpacity>
+              <TouchableOpacity className="px-3 py-3" onPress={() => toggle(wn, { image: item.imageUrl })} activeOpacity={0.7}>
+                <Text style={{ fontSize: 18, color: wished ? "#ffd700" : "#555" }}>{wished ? "★" : "☆"}</Text>
+              </TouchableOpacity>
               <TouchableOpacity className="p-3.5" onPress={() => handleDecrement(item)}>
                 <Text className="text-ygo-danger text-base font-bold">−1</Text>
               </TouchableOpacity>
             </View>
-          )}
+            );
+          }}
           contentContainerStyle={{ paddingBottom: 20 }}
         />
       )}
@@ -300,12 +338,23 @@ export default function CollectionScreen() {
 }
 
 function CharacterGroupCard({
-  group, router, onDecrement,
+  group, router, onDecrement, isWished, onToggleWish,
 }: {
   group: CharacterGroup;
   router: any;
   onDecrement: (e: CollectionEntry) => void;
+  isWished: (name: string) => boolean;
+  onToggleWish: (name: string, extra?: { image?: string }) => void;
 }) {
+  const WishStar = ({ card }: { card: CollectionEntry }) => {
+    const wn = card.cardNameEn || card.cardName;
+    const on = isWished(wn);
+    return (
+      <TouchableOpacity className="px-2.5 py-2" onPress={() => onToggleWish(wn, { image: card.imageUrl })} activeOpacity={0.7}>
+        <Text style={{ fontSize: 16, color: on ? "#ffd700" : "#555" }}>{on ? "★" : "☆"}</Text>
+      </TouchableOpacity>
+    );
+  };
   const [expanded, setExpanded] = useState(false);
 
   return (
@@ -358,6 +407,7 @@ function CharacterGroupCard({
                 )}
                 <Text className="text-gray-300 text-[13px] flex-1" numberOfLines={1}>{card.cardName}</Text>
               </TouchableOpacity>
+              <WishStar card={card} />
               <TouchableOpacity className="p-2" onPress={() => onDecrement(card)}>
                 <Text className="text-ygo-danger text-base font-bold">−1</Text>
               </TouchableOpacity>
@@ -389,6 +439,7 @@ function CharacterGroupCard({
                       )}
                     </View>
                   </TouchableOpacity>
+                  <WishStar card={card} />
                   <TouchableOpacity className="p-2" onPress={() => onDecrement(card)}>
                     <Text className="text-ygo-danger text-base font-bold">−1</Text>
                   </TouchableOpacity>

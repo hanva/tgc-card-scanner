@@ -98,6 +98,16 @@ export interface WishItem {
   price: number | null; offerUrl: string | null; seller: string | null; addedAt: string;
 }
 
+/** Wishlist au format MarketDataset (matchée + groupée serveur) → écran Wishlist groupé. */
+export async function getWishDataset(): Promise<MarketDataset | null> {
+  try {
+    const r = await fetch(`${API_BASE}/wishlist/full`, { headers: headers() });
+    return r.ok ? await r.json() : null;
+  } catch {
+    return null;
+  }
+}
+
 export async function listWish(): Promise<WishItem[]> {
   try {
     const r = await fetch(`${API_BASE}/wishlist`, { headers: headers() });
@@ -112,6 +122,14 @@ export async function addWish(card: {
 }): Promise<void> {
   try {
     await fetch(`${API_BASE}/wishlist`, { method: "POST", headers: jsonHeaders(), body: JSON.stringify(card) });
+  } catch {}
+}
+
+export async function addWishBulk(
+  cards: { name: string; image?: string; expansionCode?: string; price?: number | null; offerUrl?: string; seller?: string }[]
+): Promise<void> {
+  try {
+    await fetch(`${API_BASE}/wishlist/bulk`, { method: "POST", headers: jsonHeaders(), body: JSON.stringify({ cards }) });
   } catch {}
 }
 

@@ -69,3 +69,71 @@ export function charactersSorted(d: MarketDataset): { id: string; name: string; 
     .sort((a, b) => b.count - a.count);
 }
 
+// ─── Groupement partagé (Marché + Wishlist) ───
+
+export interface Section {
+  key: string;
+  title: string;
+  cards: MarketCard[];
+}
+
+/** Une carte = une vignette, même si plusieurs offres (raretés/éditions) → on garde la moins chère. */
+export function dedupeByName(cards: MarketCard[]): MarketCard[] {
+  const by = new Map<string, MarketCard>();
+  for (const c of cards) {
+    const k = norm(c.name); // collapse les variantes/raretés (ex "(V.1 - Ultra Rare)")
+    const ex = by.get(k);
+    if (!ex) by.set(k, c);
+    else if ((c.price ?? Infinity) < (ex.price ?? Infinity)) by.set(k, c);
+  }
+  return [...by.values()];
+}
+
+export interface BuildSectionsOpts {
+  mode: "archetype" | "character";
+  filterValue: string | null;
+  query: string;
+  matchFilter: "matched" | "unmatched" | "all";
+  showDups: boolean;
+}
+
+/** Construit les sections groupées (archétype ou perso) d'un dataset. Identique Marché ↔ Wishlist. */
+export function buildSections(dataset: MarketDataset, opts: BuildSectionsOpts): Section[] {
+  const { mode, filterValue, query, matchFilter, showDups } = opts;
+  const q = query.trim().toLowerCase();
+  const pass = (c: MarketCard) => !q || c.name.toLowerCase().includes(q);
+  const matched = dataset.cards.filter((c) => c.isMatched && pass(c));
+  const out: Section[] = [];
+  const dd = (arr: MarketCard[]) => (showDups ? arr : dedupeByName(arr));
+
+  if (matchFilter !== "unmatched") {
+    if (mode === "archetype") {
+      for (const a of archetypesSorted(dataset)) {
+        if (filterValue && filterValue !== a.name) continue;
+        const cards = dd(matched.filter((c) => c.matched!.archetypes.includes(a.name)));
+        if (cards.length) out.push({ key: "a:" + a.name, title: a.name, cards });
+      }
+    } else {
+      for (const ch of charactersSorted(dataset)) {
+        if (filterValue && filterValue !== ch.id) continue;
+        const cards = dd(matched.filter((c) => c.matched!.characters.includes(ch.id)));
+        if (cards.length) out.push({ key: "c:" + ch.id, title: ch.name, cards });
+      }
+    }
+  }
+  if (matchFilter !== "matched" && !filterValue) {
+    const unmatched = dd(dataset.cards.filter((c) => !c.isMatched && pass(c)));
+    if (unmatched.length) out.push({ key: "unmatched", title: "Non liées", cards: unmatched });
+  }
+  return out;
+}
+
+/** Noms uniques prêts pour l'import cardmarket "Add Deck List", découpés en blocs de `chunk`. */
+export function exportBlocks(cards: MarketCard[], chunk = 150): string[][] {
+  const clean = (n: string) => (n || "").replace(/\([^)]*\)/g, " ").replace(/\s+/g, " ").trim();
+  const names = [...new Set(cards.map((c) => clean(c.name)).filter(Boolean))];
+  const blocks: string[][] = [];
+  for (let i = 0; i < names.length; i += chunk) blocks.push(names.slice(i, i + chunk));
+  return blocks;
+}
+

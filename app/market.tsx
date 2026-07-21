@@ -1,25 +1,13 @@
 import { useCallback, useMemo, useState } from "react";
 import { View, Text, TextInput, FlatList, ScrollView, TouchableOpacity, ActivityIndicator, useWindowDimensions } from "react-native";
 import { useRouter, useLocalSearchParams, useFocusEffect } from "expo-router";
-import { archetypesSorted, charactersSorted, norm, MarketCard, MarketDataset } from "../src/services/market";
+import { archetypesSorted, charactersSorted, buildSections, norm, MarketCard, MarketDataset, Section } from "../src/services/market";
 import { listSellers, getDataset, listWish, addWish, removeWish, SellerSummary } from "../src/services/marketApi";
 import { MarketCardTile } from "../src/components/MarketCardTile";
+import { Chip, ModeTab } from "../src/components/GroupControls";
 import { useScan } from "../src/services/scanController";
 
 type Mode = "archetype" | "character";
-interface Section { key: string; title: string; cards: MarketCard[] }
-
-// Une carte = une vignette, même si plusieurs offres (raretés/éditions) → on garde la moins chère.
-function dedupeByName(cards: MarketCard[]): MarketCard[] {
-  const by = new Map<string, MarketCard>();
-  for (const c of cards) {
-    const k = norm(c.name); // normalisé → collapse les variantes/raretés (ex "(V.1 - Ultra Rare)")
-    const ex = by.get(k);
-    if (!ex) by.set(k, c);
-    else if ((c.price ?? Infinity) < (ex.price ?? Infinity)) by.set(k, c);
-  }
-  return [...by.values()];
-}
 
 const COLS = 3;
 const H_PAD = 12;
@@ -90,35 +78,10 @@ export default function MarketScreen() {
   const archetypes = useMemo(() => (dataset ? archetypesSorted(dataset) : []), [dataset]);
   const characters = useMemo(() => (dataset ? charactersSorted(dataset) : []), [dataset]);
 
-  const sections = useMemo<Section[]>(() => {
-    if (!dataset) return [];
-    const q = query.trim().toLowerCase();
-    const pass = (c: MarketCard) => !q || c.name.toLowerCase().includes(q);
-    const matched = dataset.cards.filter((c) => c.isMatched && pass(c));
-    const out: Section[] = [];
-    const dd = (arr: MarketCard[]) => (showDups ? arr : dedupeByName(arr)); // toggle "Doublons"
-
-    if (matchFilter !== "unmatched") {
-      if (mode === "archetype") {
-        for (const a of archetypes) {
-          if (filterValue && filterValue !== a.name) continue;
-          const cards = dd(matched.filter((c) => c.matched!.archetypes.includes(a.name)));
-          if (cards.length) out.push({ key: "a:" + a.name, title: a.name, cards });
-        }
-      } else {
-        for (const ch of characters) {
-          if (filterValue && filterValue !== ch.id) continue;
-          const cards = dd(matched.filter((c) => c.matched!.characters.includes(ch.id)));
-          if (cards.length) out.push({ key: "c:" + ch.id, title: ch.name, cards });
-        }
-      }
-    }
-    if (matchFilter !== "matched" && !filterValue) {
-      const unmatched = dd(dataset.cards.filter((c) => !c.isMatched && pass(c)));
-      if (unmatched.length) out.push({ key: "unmatched", title: "Non liées", cards: unmatched });
-    }
-    return out;
-  }, [dataset, query, mode, filterValue, matchFilter, showDups, archetypes, characters]);
+  const sections = useMemo<Section[]>(
+    () => (dataset ? buildSections(dataset, { mode, filterValue, query, matchFilter, showDups }) : []),
+    [dataset, query, mode, filterValue, matchFilter, showDups]
+  );
 
   // Aplatissement en rangées (en-tête | rangée de 3 cartes) pour virtualiser toute la liste
   // → seules les rangées visibles se rendent (les images chargent au scroll).
@@ -250,6 +213,7 @@ export default function MarketScreen() {
                       card={c}
                       width={tileW}
                       wished={wished.has(norm(c.name))}
+                      halo={wished.has(norm(c.name))}
                       onToggleWish={toggleWish}
                     />
                   ))}
@@ -260,29 +224,5 @@ export default function MarketScreen() {
         </>
       )}
     </View>
-  );
-}
-
-function ModeTab({ label, active, onPress }: { label: string; active: boolean; onPress: () => void }) {
-  return (
-    <TouchableOpacity
-      className={`flex-1 items-center py-2 rounded-lg border ${active ? "bg-ygo-gold border-ygo-gold-bright" : "bg-ygo-card border-ygo-muted"}`}
-      onPress={onPress}
-      activeOpacity={0.8}
-    >
-      <Text className={`text-xs font-bold ${active ? "text-ygo-bg" : "text-gray-300"}`}>{label}</Text>
-    </TouchableOpacity>
-  );
-}
-
-function Chip({ label, active, onPress }: { label: string; active: boolean; onPress: () => void }) {
-  return (
-    <TouchableOpacity
-      className={`px-3 py-2 rounded-full border ${active ? "bg-ygo-gold border-ygo-gold-bright" : "bg-ygo-card border-ygo-muted"}`}
-      onPress={onPress}
-      activeOpacity={0.8}
-    >
-      <Text className={`text-xs font-semibold ${active ? "text-ygo-bg" : "text-gray-300"}`}>{label}</Text>
-    </TouchableOpacity>
   );
 }

@@ -12,10 +12,12 @@ import { getStoredCard } from "../../src/services/cardStore";
 import {
   isInCollection, addToCollection, decrementFromCollection, updateCollectionEntry,
 } from "../../src/services/collection";
+import { useWishlist } from "../../src/hooks/useWishlist";
 
 export default function CardDetailScreen() {
   const { id, from } = useLocalSearchParams<{ id: string; from?: string }>();
   const router = useRouter();
+  const { isWished, toggle } = useWishlist();
   const [card, setCard] = useState<YgoCard | null>(null);
   const [characters, setCharacters] = useState<CharacterResult[]>([]);
   const [inCollection, setInCollection] = useState(false);
@@ -64,6 +66,10 @@ export default function CardDetailScreen() {
   }
 
   const imageUrl = card.card_images?.[0]?.image_url;
+  // Wishlist : clé = nom anglais (cohérent Marché + export cardmarket).
+  const wishName = card.name_en || card.name;
+  const wished = isWished(wishName);
+  const onToggleWish = () => toggle(wishName, { image: imageUrl });
 
   return (
     <ScrollView className="flex-1 bg-ygo-bg" contentContainerStyle={{ alignItems: "center", padding: 20, paddingBottom: 40 }}>
@@ -77,6 +83,16 @@ export default function CardDetailScreen() {
       {card.name_en && card.name_en !== card.name && (
         <Text className="text-gray-500 text-sm mt-1">{card.name_en}</Text>
       )}
+
+      <TouchableOpacity
+        className={`mt-3 py-2 px-4 rounded-full ${wished ? "bg-ygo-gold" : "bg-ygo-card border border-ygo-gold/40"}`}
+        onPress={onToggleWish}
+        activeOpacity={0.7}
+      >
+        <Text className={`text-xs font-bold ${wished ? "text-ygo-bg" : "text-ygo-gold"}`}>
+          {wished ? "★ Dans la wishlist (tap pour retirer)" : "☆ Ajouter à la wishlist"}
+        </Text>
+      </TouchableOpacity>
 
       {inCollection && (
         <TouchableOpacity
