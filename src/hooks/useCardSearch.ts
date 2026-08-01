@@ -33,7 +33,7 @@ export function useCardSearch() {
         const cards = await searchCards(query);
         // Only update if this is still the latest request
         if (currentId !== requestIdRef.current) return;
-        cards.forEach(storeCard);
+        cards.forEach((c) => storeCard(c));
         setResults(cards);
         if (cards.length === 0) {
           setError("Aucune carte trouvée");

@@ -4,8 +4,10 @@ import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { ScanProvider } from "../src/services/scanController";
+import { hydrateCardStore } from "../src/services/cardStore";
 
 LogBox.ignoreAllLogs(true);
+hydrateCardStore(); // recharge la base locale de cartes (index par set code)
 
 export default function RootLayout() {
   return (

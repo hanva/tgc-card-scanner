@@ -13,6 +13,7 @@
     "Odd-Eyes Rebellion Dragon Overlord",
     "Odd-Eyes Revolution Dragon",
     "Odd-Eyes Venom Dragon",
+    "Rebellion",
     "Snake-Eyes Doomed Dragon",
     "Snake-Eyes Vengeance Dragon"
   ],
@@ -62,6 +63,7 @@
   ],
   "/Assault Mode": [
     "Black Rose Dragon/Assault Mode",
+    "Crimson Blader",
     "Crimson Blader/Assault Mode",
     "Junk Warrior/Assault Mode",
     "Red Nova Dragon/Assault Mode",
@@ -73,6 +75,7 @@
   ],
   "A-to-Z": [
     "A-to-Z Energy Load",
+    "Union Controller",
     "X-Cross Cannon",
     "XYZ-Hyper Dragon Cannon",
     "Y-Yare Head",
@@ -272,6 +275,7 @@
   "Alligator": [
     "Alligator's Sword",
     "Alligator's Sword Dragon",
+    "Baby Dragon",
     "Cyber-Tech Alligator",
     "Lion Alligator",
     "Spawn Alligator",
@@ -383,6 +387,7 @@
     "Amazoness War Chief",
     "Amazoness Willpower",
     "Dramatic Rescue",
+    "Order of the Queen",
     "Queen's Pawn"
   ],
   "Amorphage": [
@@ -399,6 +404,7 @@
     "Amorphous Persona"
   ],
   "Ancient Fairy Dragon": [
+    "Ancient Fairy Dragon",
     "Ancient Fairy Life Dragon",
     "Eternal Sunshine",
     "Kuribon the Fairy Spirit",
@@ -479,6 +485,15 @@
     "Ancient Warriors Saga - Sun-Liu Alliance",
     "Ancient Warriors Saga - Three Visits"
   ],
+  "Angelechy": [
+    "Angelechy Bastion",
+    "Angelechy Destrier",
+    "Angelechy Disturbance",
+    "Angelechy Enlisted",
+    "Angelechy Opening to e4",
+    "Angelechy Problem",
+    "Angelechy Shatranga"
+  ],
   "Anotherverse": [
     "Anotherverse Solaria",
     "Anotherverse Stratios"
@@ -491,11 +506,13 @@
     "Anti-Magic Prism",
     "Anti-Spell",
     "Anti-Spell Fragrance",
-    "Antialian"
+    "Antialian",
+    "Raigeki"
   ],
   "Apophis": [
     "Apophis the Serpent",
-    "Divine Serpent Apophis"
+    "Divine Serpent Apophis",
+    "Embodiment of Apophis"
   ],
   "Apoqliphort": [
     "Apoqliphort Skybase",
@@ -550,7 +567,10 @@
     "Arcana Force XV - The Fiend",
     "Arcana Force XVIII - The Moon",
     "Arcana Force XXI - The World",
+    "Arcana Reading",
+    "Arcana Spread",
     "Light Barrier",
+    "Light Force",
     "Moon Token",
     "Reversal of Fate"
   ],
@@ -595,12 +615,19 @@
     "Beast of Talwar",
     "Beast of Talwar - The Sword Summit",
     "Berserk Archfiend",
+    "Berserk Dragon",
     "Black Skull Dragon",
+    "Black Skull Dragon the Archfiend Dragon of Unity",
     "Bone Archfiend",
     "Call of the Archfiend",
+    "Cave Dragon",
+    "Champion's Pulse",
     "Chaos King Archfiend",
     "Checkmate",
+    "Contract with the Abyss",
+    "Crimson Call",
     "Crimson Fire",
+    "Crimson Gaia",
     "Crossmind Archfiend",
     "Cyber Archfiend",
     "Darkbishop Archfiend",
@@ -608,6 +635,7 @@
     "Duke Archfiend",
     "Falling Down",
     "Fiend Skull Dragon",
+    "Fiendish Golem",
     "Highness Archfiend",
     "Hot Red Dragon Archfiend",
     "Hot Red Dragon Archfiend Abyss",
@@ -617,15 +645,18 @@
     "Infernalqueen Archfiend",
     "Infernity Archfiend",
     "King Scarlet",
+    "King's Resonance",
     "Labrynth Archfiend",
     "Lancer Archfiend",
     "Lesser Fiend",
     "Linkmail Archfiend",
     "Mad Archfiend",
     "Majestic Red Dragon",
+    "Makiu, the Magical Mist",
     "Makourai, the Lightning Strike",
     "Masterking Archfiend",
     "Matador Archfiend",
+    "Mazera DeVille",
     "Mimighoul Archfiend",
     "Mist Archfiend",
     "Nefarious Archfiend Eater of Nefariousness",
@@ -634,15 +665,20 @@
     "Number C102: Archfiend Seraph",
     "Overmind Archfiend",
     "Pandemonium",
+    "Pandemonium Watchbear",
+    "Plaguespreader Zombie",
+    "Power Vice Dragon",
     "Red Cocoon",
     "Red Dragon Archfiend",
-    "Red Dragon Archfiend's Chain",
+    "Red Dragon Archfiend's Chains",
     "Red Gardna",
     "Red Nova Dragon",
     "Red Screen",
     "Red Supremacy",
+    "Red Zone",
     "Red-Eyes Archfiend of Lightning",
     "Regenesis Archfiend",
+    "Ritual of the Matador",
     "Royal Archfiend",
     "Scarlet Security",
     "Scarlight Red Dragon Archfiend",
@@ -654,8 +690,10 @@
     "Simul Archfiends",
     "Skilled Red Magician",
     "Skull Archfiend of Lightning",
+    "Soul Fist",
     "Summoned Skull",
     "Terrorking Archfiend",
+    "The Crimson King",
     "Thought Ruler Archfiend",
     "Throne of the Archfiends",
     "Trance Archfiend",
@@ -691,6 +729,7 @@
     "Armed Dragon Thunderbolt",
     "Armed Dragon, the Armored Dragon",
     "Dark Armed Dragon",
+    "Dark Armed Dragon Punisher",
     "Drill Armed Dragon",
     "Fist Armed Dragon",
     "Metaphys Armed Dragon",
@@ -720,6 +759,13 @@
     "Blessed Winds",
     "Dried Winds",
     "Humid Winds"
+  ],
+  "Ars Magna": [
+    "Ars Magna - \"Citrinitas\"",
+    "Ars Magna - \"Philosophirum\"",
+    "Ars Magna of Infinity and Finity",
+    "Ars Magna of Purification and Corruption",
+    "Ars Magna of Unification and Separation"
   ],
   "Artifact": [
     "Artifact Achilleshield",
@@ -760,6 +806,7 @@
   "Ashened": [
     "Ashened for Eternity",
     "Ashened to Endlessness",
+    "Awakening of Veidos",
     "Embers of the Ashened",
     "Extinguishing the Ashened",
     "Hero of the Ashened City",
@@ -769,28 +816,49 @@
     "Priestess of the Ashened City",
     "Rekindling the Ashened",
     "Shaman of the Ashened City",
-    "Spearhead of the Ashened City"
+    "Spearhead of the Ashened City",
+    "Veidos the Eruption Dragon of Extinction"
+  ],
+  "Ashtra": [
+    "Akasuna the Battle Ashtra",
+    "Ashtra Cursed Roar",
+    "Ashtra Divine Domain",
+    "Ashtra Insect Poison",
+    "Ashtraja Susanoo",
+    "Ashtrashen - Gateway to the Worlds Beyond",
+    "Ashtraya Mikumari-no-Mikoto",
+    "Kuzuha the Bewitching Deity Ashtra",
+    "Mikumari the Sealing Deity Ashtra",
+    "Yoa the Plague Deity Ashtra"
   ],
   "Assault Blackwing": [
     "Assault Blackwing - Kusanagi the Gathering Storm"
   ],
   "Assault Mode": [
     "Arcane Apprentice",
+    "Arcanite Magician",
     "Arcanite Magician/Assault Mode",
     "Assault Beast",
     "Assault Counter",
+    "Assault Lich",
     "Assault Mercenary",
     "Assault Mode Activate",
     "Assault Mode Zero",
     "Assault Overload",
     "Assault Reboot",
     "Assault Revival",
+    "Assault Sentinel",
     "Assault Slash",
     "Assault Teleport",
+    "Colossal Fighter",
     "Colossal Fighter/Assault Mode",
+    "Doomkaiser Dragon",
     "Doomkaiser Dragon/Assault Mode",
+    "Duel Evolution - Assault Zone",
+    "Hyper Psychic Blaster",
     "Hyper Psychic Blaster/Assault Mode",
     "Night Wing Sorceress",
+    "Nightwinged Cleric",
     "Psi-Reflector",
     "Red Dragon Archfiend/Assault Mode",
     "T.G. Halberd Cannon/Assault Mode"
@@ -808,6 +876,14 @@
     "Phantasm Spiral Dragon",
     "Poseidra, the Atlantean Dragon",
     "Poseidra, the Storming Atlantean"
+  ],
+  "Atlantis, City of the Sea Dragon": [
+    "Advent of Atlantis",
+    "Atlantis Call",
+    "Atlantis, City of the Sea Dragon",
+    "Fiendish Vortex of Atlantis",
+    "General of Atlantis",
+    "Monstrous Arms of Atlantis"
   ],
   "Attraction": [
     "Amaze Attraction Cyclo-Coaster",
@@ -846,6 +922,7 @@
     "B.E.S. Derringer Core",
     "B.E.S. Tetran",
     "Boss Rush",
+    "Boss on Parade",
     "Super B.E.S. Metal Slave"
   ],
   "Bamboo Sword": [
@@ -863,7 +940,10 @@
   ],
   "Barian's": [
     "Barian Untopia",
-    "Barian's Chaos Draw"
+    "Barian's Chaos Draw",
+    "Barian's Hope",
+    "Barian's Seal",
+    "Seventh Barian's"
   ],
   "Batteryman": [
     "Battery Charger",
@@ -889,10 +969,12 @@
     "Battleguard Howling",
     "Battleguard King",
     "Battleguard Rage",
+    "Feast of the Wild LV5",
     "Lava Battleguard",
     "Swamp Battleguard"
   ],
   "Battlewasp": [
+    "Armed Rebeellion",
     "Battlewasp - Arbalest the Rapidfire",
     "Battlewasp - Azusa the Ghost Bow",
     "Battlewasp - Ballista the Armageddon",
@@ -986,11 +1068,13 @@
     "Assault Blackwing - Sayo the Rain Hider",
     "Assault Blackwing - Sohaya the Rain Storm",
     "Black Feather Beacon",
+    "Black Feather Whirlwind",
     "Black Return",
     "Black Sonic",
     "Black Thunder",
     "Black Whirlwind",
     "Black Wing Revenge",
+    "Black-Winged Dragon",
     "Black-Winged Strafe",
     "Blackback",
     "Blackbird Close",
@@ -1067,16 +1151,19 @@
     "Blaze Cannon",
     "Tri-Blaze Accelerator",
     "Volcanic Blaze Accelerator",
-    "Wild Fire"
+    "Wild Fire",
+    "Wild Fire Token"
   ],
   "Blitzclique": [
     "Blitzclique - Breakaway",
+    "Blitzclique - Overvoltage",
     "Blitzclique - Steppleader",
     "Blitzclique Alternator",
     "Blitzclique Return Stroke",
     "Crackle Blitzclique",
     "Emi Blitzclique",
     "Grain Blitzclique",
+    "Hideout in the Sky, Coulomb",
     "Surge Blitzclique",
     "Whisker Blitzclique"
   ],
@@ -1111,32 +1198,42 @@
     "Dragon Spirit of White",
     "Heart of the Blue-Eyes",
     "Kaibaman",
+    "Kaibaman the Legend",
+    "Maiden of White",
     "Maiden with Eyes of Blue",
+    "Majesty of the White Dragons",
     "Majesty with Eyes of Blue",
     "Malefic Blue-Eyes White Dragon",
     "Master with Eyes of Blue",
     "Neo Blue-Eyes Ultimate Dragon",
+    "Neo Kaiser Sea Horse",
     "Neutron Blast",
     "Paladin of White Dragon",
     "Priestess with Eyes of Blue",
     "Protector with Eyes of Blue",
     "Rage with Eyes of Blue",
+    "Roar of the Blue-Eyed Dragons",
     "Sage with Eyes of Blue",
     "The Ultimate Creature of Destruction",
     "The White Stone of Ancients",
     "The White Stone of Legend",
     "True Light",
-    "Ultimate Fusion"
+    "Ultimate Fusion",
+    "White Dragon Ritual"
   ],
   "Bonding": [
     "Bonding - D2O",
     "Bonding - DHO",
     "Bonding - H2O",
     "Carboneddon",
+    "Chemistry in Motion",
+    "Conduction Warrior Linear Magnum Plus Minus",
     "Duoterion",
     "Hydrogeddon",
+    "Light Water Dragon",
     "Magnet Bonding",
     "Oxygeddon",
+    "Under Pressure",
     "Water Dragon",
     "Water Dragon Cluster"
   ],
@@ -1170,8 +1267,11 @@
     "Borrelshroud Dragon",
     "Borrelsword Dragon",
     "Breachborrel Dragon",
+    "Double Interlock",
     "Execute Protocols",
+    "Heavy Interlock",
     "Quadborrel Dragon",
+    "Rapid Trigger",
     "Triple Borrel Launch",
     "Trisborrel Dragon"
   ],
@@ -1206,7 +1306,7 @@
     "Judgment of the Branded",
     "Light of the Branded",
     "Screams of the Branded",
-    "The Fallen &amp; The Virtuous"
+    "The Fallen & The Virtuous"
   ],
   "Broken World": [
     "Peaceful Planet Calarium",
@@ -1358,7 +1458,7 @@
     "Chaos Emperor Dragon - Envoy of the End",
     "Chaos Emperor, the Dragon of Armageddon",
     "Chaos End",
-    "Chaos End Ruler - Ruler of the Beginning and the End",
+    "Chaos End Ruler - Master of the Beginning and End",
     "Chaos Goddess",
     "Chaos Grepher",
     "Chaos Hunter",
@@ -1380,8 +1480,13 @@
     "Core of Chaos",
     "Eternal Chaos",
     "Illusion of Chaos",
+    "Limit Impulse",
+    "Macro Cosmos",
     "Marshalling Field",
     "Master of Chaos",
+    "Number 43: Manipulator of Souls",
+    "Number 92: Heart-eartH Dragon",
+    "Number 9: Dyson Sphere",
     "Number C43: High Manipulator of Chaos",
     "Number C5: Chaos Chimera Dragon",
     "Number C6: Chronomaly Chaos Atlandis",
@@ -1432,6 +1537,7 @@
   ],
   "Chemicritter": [
     "Burnout",
+    "Catalyst Field",
     "Chemicritter Carbo Crab",
     "Chemicritter Hydron Hawk",
     "Chemicritter Oxy Ox",
@@ -1442,9 +1548,16 @@
   ],
   "Chimera": [
     "Beasts of Phantom",
+    "Berfomet",
     "Berfomet the Mythical King of Phantom Beasts",
+    "Big-Winged Berfomet",
     "Chimera Fusion",
-    "Chimera the King of Phantom Beasts"
+    "Chimera the Flying Mythical Beast",
+    "Chimera the King of Phantom Beasts",
+    "Cornfield Coatl",
+    "Gazelle the King of Mythical Beasts",
+    "Gazelle the King of Mythical Claws",
+    "Mirror Swordknight"
   ],
   "Chronomaly": [
     "Chronomaly Acambaro Figures",
@@ -1514,7 +1627,8 @@
     "Clear Phantom",
     "Clear Rage Golem",
     "Clear Vicious Knight",
-    "Clear Wall"
+    "Clear Wall",
+    "Clear World"
   ],
   "Clear Wing": [
     "Clear Wing Fast Dragon",
@@ -1567,6 +1681,7 @@
     "Accesscode Talker",
     "Code Exporter",
     "Code Generator",
+    "Code Hack",
     "Code Radiator",
     "Code Talker",
     "Code Talker Inverted",
@@ -1642,8 +1757,11 @@
     "Red Nova Dragon - Burning Soul"
   ],
   "Counter Fairy": [
+    "Black Horn of Heaven",
     "Guiding Ariadne",
     "Harvest Angel of Doom",
+    "Horn of Heaven",
+    "Synthetic Seraphim",
     "Synthetic Seraphim Token"
   ],
   "Crusadia": [
@@ -1669,6 +1787,7 @@
     "Crystal Miracle",
     "Crystal Transcendence",
     "Golden Rule",
+    "Rainbow Bridge",
     "Rainbow Crystal Collection",
     "Ultimate Crystal Rainbow Dragon Overdrive"
   ],
@@ -1696,6 +1815,8 @@
     "Crystal Raigeki",
     "Crystal Release",
     "Crystal Tree",
+    "Last Resort",
+    "Rainbow Dark Dragon",
     "Rainbow Dragon",
     "Rainbow Gravity",
     "Rainbow Overdragon",
@@ -1757,6 +1878,7 @@
     "Curse of Dragon, the Magical Knight Dragon"
   ],
   "CXyz": [
+    "Battlecruiser Dianthus",
     "CXyz Barian Hope",
     "CXyz Battleship Cherry Blossom",
     "CXyz Coach Lord Ultimatrainer",
@@ -1765,13 +1887,20 @@
     "CXyz Gimmick Puppet Fanatix Machinix",
     "CXyz Simon the Great Moral Leader",
     "CXyz Skypalace Babylon",
+    "Comics Hero King Arthur",
+    "Fairy Cheer Girl",
+    "Norito the Moral Leader",
     "Rank-Up-Magic Admiration of the Thousands",
-    "Rank-Up-Magic Barian's Force"
+    "Rank-Up-Magic Barian's Force",
+    "Skypalace Gangaridai"
   ],
   "Cyber": [
     "Attachment Cybern",
+    "Blade Skater",
     "Cyber Blade Fusion",
-    "Cyber End Dragon the Decisive Strike Dragon",
+    "Cyber Blader",
+    "Cyber Dragon, the Luminous Mech Dragon",
+    "Cyber End Dragon, the Final Strike Dragon",
     "Cyber Eternal",
     "Cyber Jormungardr",
     "Cyberdark Wurm",
@@ -1779,8 +1908,10 @@
     "Cyberse Contract Witch",
     "Cyberse Desavewurm",
     "Cyberse Sage",
+    "Cynet Ritual",
+    "Etoile Cyber",
     "Forbidden Cyber Style Technique",
-    "Revolution Cyber Dragon"
+    "Limiter Removal"
   ],
   "Cyber Angel": [
     "Cyber Angel Benten",
@@ -1795,11 +1926,17 @@
     "Machine Angel Absolute Ritual",
     "Machine Angel Ritual",
     "Magnificent Machine Angel",
-    "Merciful Machine Angel"
+    "Merciful Machine Angel",
+    "Ritual Sanctuary"
   ],
   "Cyber Dragon": [
     "Armored Cybern",
     "Attack Reflector Unit",
+    "Chimeratech Fortress Dragon",
+    "Chimeratech Megafleet Dragon",
+    "Chimeratech Overdragon",
+    "Chimeratech Rampage Dragon",
+    "Cyber Barrier Dragon",
     "Cyber Dragon",
     "Cyber Dragon Core",
     "Cyber Dragon Drei",
@@ -1816,12 +1953,14 @@
     "Cyber Pharos",
     "Cyber Repair Plant",
     "Cyber Revsystem",
+    "Cyber Twin Dragon",
     "Cyberload Fusion",
     "Cybernetic Hidden Technology",
     "Cybernetic Overflow",
     "Cybernetic Revolution",
     "Evolution Burst",
     "Evolution End Burst",
+    "Overload Fusion",
     "Photon Generator Unit",
     "Proto-Cyber Dragon",
     "Super Strident Blaze"
@@ -1852,6 +1991,7 @@
     "Cynet Rollback"
   ],
   "D.D.": [
+    "Beast-Warrior Puma",
     "D.D. Assailant",
     "D.D. Assault Carrier",
     "D.D. Borderline",
@@ -1878,6 +2018,9 @@
     "D.D.M. - Different Dimension Master",
     "D.D.R. - Different Dimension Reincarnation",
     "Dark Dimension Soldier",
+    "Ironhammer the Giant",
+    "Phoenix Beast Gairuda",
+    "Sargasso Lighthouse",
     "Sargasso the D.D. Battlefield"
   ],
   "D/D": [
@@ -1960,6 +2103,7 @@
     "Go! - D/D/D Divine Zero King Rage"
   ],
   "Daedalus": [
+    "Azure Ocean Dragon Lord - Neo-Daedalus Rage",
     "Daedalus Maelstrom",
     "Levia-Dragoon - Daedalus",
     "Leviathan of Atlantis - Daedalus"
@@ -2006,6 +2150,7 @@
     "Dark Magic Curtain",
     "Dark Magic Expanded",
     "Dark Magic Inheritance",
+    "Dark Magic Talisman",
     "Dark Magic Twin Burst",
     "Dark Magician",
     "Dark Magician Girl",
@@ -2030,12 +2175,14 @@
     "Magician of Black Chaos MAX",
     "Magician of Chaos",
     "Magician of Dark Illusion",
+    "Magician's Act",
     "Magician's Robe",
     "Magician's Rod",
     "Magician's Salvation",
     "Magicians' Combination",
     "Magicians' Souls",
     "Miracle Restoring",
+    "Mirage Knight",
     "Palladium Oracle Mahad",
     "Palladium Oracle Mana",
     "Sage's Stone",
@@ -2044,7 +2191,8 @@
     "Soul Servant",
     "The Dark Magicians",
     "The Eye of Timaeus",
-    "Thousand Knives"
+    "Thousand Knives",
+    "Timaeus the United Magical Dragon"
   ],
   "Dark Scorpion": [
     "Dark Scorpion - Chick the Yellow",
@@ -2078,6 +2226,7 @@
     "Charge Into a Dark World",
     "Clorless, Chaos King of Dark World",
     "Dark Blade",
+    "Dark Blade the Dragon Knight",
     "Dark World Accession",
     "Dark World Archives",
     "Dark World Brainwashing",
@@ -2088,16 +2237,19 @@
     "Dark World Puppetry",
     "Gateway to Dark World",
     "Genta, Gateman of Dark World",
+    "Giant Kozaky",
     "Goldd, Wu-Lord of Dark World",
     "Grapha, Dragon Lord of Dark World",
     "Grapha, Dragon Overlord of Dark World",
     "Gren, Tactician of Dark World",
     "Kahkki, Guerilla of Dark World",
+    "Kiryu",
     "Kozaky",
     "Latinum, Exarch of Dark World",
     "Lucent, Netherlord of Dark World",
     "Mad Lobster",
     "Parl, Hermit of Dark World",
+    "Pitch-Dark Dragon",
     "Reign-Beaux, Overking of Dark World",
     "Reign-Beaux, Overlord of Dark World",
     "Renge, Gatekeeper of Dark World",
@@ -2140,11 +2292,18 @@
     "Deus Token",
     "Fallen Angel in Darkness",
     "Indulged Darklord",
+    "St. Joan",
     "The First Darklord",
     "The Sanctified Darklord"
   ],
+  "Death": [
+    "Hublot the Dark Directory of Death",
+    "Officiating Reverie",
+    "Officiator of Doom Samuel"
+  ],
   "Deep Sea": [
     "Deep Sea Artisan",
+    "Deep Sea Diva",
     "Deep Sea Minstrel",
     "Deep Sea Repetiteur",
     "Deep Sea Sentry"
@@ -2188,10 +2347,13 @@
     "Masquerade the Blazing Dragon"
   ],
   "Destiny HERO": [
+    "Break the Destiny",
     "Clock Tower Prison",
     "Cyclone Blade",
+    "D - Burst",
     "D - Chain",
     "D - Counter",
+    "D - Force",
     "D - Formation",
     "D - Fortune",
     "D - Shield",
@@ -2201,6 +2363,7 @@
     "D Cubed",
     "D-Fusion",
     "Dark City",
+    "Dark City at Midnight",
     "Destiny Draw",
     "Destiny End Dragoon",
     "Destiny HERO - Blade Master",
@@ -2239,11 +2402,13 @@
     "Destiny Mirage",
     "Destiny Signal",
     "Double Dude Token",
+    "Eternal Dread",
     "Fusion Destiny",
     "Over Destiny"
   ],
   "Destruction Sword": [
     "Buster Blader, the Destruction Swordmaster",
+    "Buster Blader, the Dragon Destroyer Swordsman",
     "Buster Dragon",
     "Buster Whelp of the Destruction Swordsman",
     "Destruction Sword Flash",
@@ -2350,9 +2515,11 @@
     "Humhumming the Key Djinn",
     "Madjinn Gunn",
     "Maestroke the Symphony Djinn",
+    "Mechquipped Angineer",
     "Melomelody the Brass Djinn",
     "Muzurhythm the String Djinn",
     "Number 65: Djinn Buster",
+    "Number C65: King Overfiend",
     "Queen Dragun Djinn",
     "Temtempo the Percussion Djinn"
   ],
@@ -2372,6 +2539,12 @@
     "Onomatopia"
   ],
   "Dogmatika": [
+    "Alba-Lenatus the Abyss Dragon",
+    "Albaz the Ashen",
+    "Albion the Shrouded Dragon",
+    "Blazing Cartesia, the Virtuous",
+    "Brigrand the Glory Dragon",
+    "Decisive Battle of Golgonda",
     "Dogmatika Adin, the Enlightened",
     "Dogmatika Alba Zoa",
     "Dogmatika Ashiyan",
@@ -2392,13 +2565,22 @@
     "Dogmatikamatrix",
     "Dogmatikaturgy",
     "Fallen of Albaz",
+    "Fallen of the White Dragon",
+    "Incredible Ecclesia, the Virtuous",
+    "Nadir Servant",
+    "New Frontier",
     "Quadogmatika Beast",
+    "Sprind the Irondash Dragon",
+    "Titaniklad the Ash Dragon",
     "White Knight of Dogmatika",
     "White Relic of Dogmatika"
   ],
   "Doll": [
+    "Box of Friends",
     "Doll Happiness",
-    "Grandpa Demetto"
+    "Doll House",
+    "Grandpa Demetto",
+    "Princess Cologne"
   ],
   "Doll Monster": [
     "Doll Monster Bear-Bear",
@@ -2435,7 +2617,8 @@
     "Doriado",
     "Doriado's Blessing",
     "Elemental Grace Doriado",
-    "Elemental Mistress Doriado"
+    "Elemental Mistress Doriado",
+    "Elemental Saga Doriado"
   ],
   "Draconia": [
     "Dragoons of Draconia",
@@ -2686,13 +2869,23 @@
     "Dark Spell Regeneration",
     "Egyptian God Slime",
     "Fist of Fate",
+    "Fury of Thunder",
     "Guardian Slime",
+    "Hieratic Chant",
+    "Holactie the Creator of Light",
+    "It's No Monster, It's a God!",
+    "Magical Trick Mirror",
     "Millennium Revelation",
     "Obelisk the Tormentor",
+    "Ra's Disciple",
     "Reactor Slime",
     "Slifer the Sky Dragon",
     "Soul Crossing",
+    "Soul Energy MAX!!!",
     "Sun God Unification",
+    "The Breaking Ruin God",
+    "The Revived Sky God",
+    "The True Sun God",
     "The Winged Dragon of Ra",
     "The Winged Dragon of Ra - Immortal Phoenix",
     "The Winged Dragon of Ra - Sphere Mode",
@@ -2713,6 +2906,7 @@
   ],
   "Elemental HERO": [
     "A Hero Lives",
+    "Battle of Sleeping Spirits",
     "Bubble Blaster",
     "Bubble Illusion",
     "Bubble Shuffle",
@@ -2723,6 +2917,8 @@
     "Cyclone Boomerang",
     "Double Hero Attack",
     "E - Emergency Call",
+    "EN Shuffle",
+    "EN Wave",
     "Edge Hammer",
     "Elemental HERO Absolute Zero",
     "Elemental HERO Air Neos",
@@ -2809,29 +3005,34 @@
     "Feather Wind",
     "Fifth Hope",
     "Generation Next",
+    "H - Heated Heart",
     "HERO's Bond",
     "Hero Barrier",
     "Hero Blast",
     "Hero Counterattack",
     "Hero Flash!!",
     "Hero Heart",
+    "Hero Kid",
     "Hero Mask",
     "Hero Signal",
     "Hero Spirit",
     "Instant Neo Space",
     "Kid Guard",
     "Magistery Alchemist",
+    "Metamorphosis",
     "Miracle Contact",
     "Miracle Fusion",
     "Mirror Gate",
     "NEXT",
     "Neo Space",
     "Neo Space Connector",
+    "Neo Space Pathfinder",
     "Neos Force",
     "Neos Fusion",
     "Neos Wiseman",
     "O - Oversoul",
     "Parallel World Fusion",
+    "Protection of the Elements",
     "R - Righteous Justice",
     "Rainbow Neos",
     "Reverse of Neos",
@@ -2917,10 +3118,12 @@
     "Magical Citadel of Endymion",
     "Magister of Endymion",
     "Reflection of Endymion",
+    "Regulus' Arrow",
     "Regulus, the Prince of Endymion",
     "Rogue of Endymion",
     "Selene, Queen of the Master Magicians",
     "Servant of Endymion",
+    "Spell Power Grasp",
     "Spell Power Mastery",
     "Verre, the Maid of Endymion"
   ],
@@ -2981,6 +3184,7 @@
     "Evil HERO Vicious Claws",
     "Evil HERO Wild Cyclone",
     "Evil Mind",
+    "Super Polymerization",
     "Supreme King's Castle"
   ],
   "Evil★Twin": [
@@ -3090,7 +3294,8 @@
     "Relinquished Anima",
     "Relinquished Fusion",
     "Thousand-Eyes Idol",
-    "Thousand-Eyes Restrict"
+    "Thousand-Eyes Restrict",
+    "Thousand-Eyes Spell"
   ],
   "F.A.": [
     "F.A. Auto Navigator",
@@ -3192,7 +3397,8 @@
   ],
   "Field Searcher": [
     "Necroworld Banshee",
-    "Ursarctic Polari"
+    "Ursarctic Polari",
+    "Zombie World"
   ],
   "Fiendsmith": [
     "Fiendsmith Engraver",
@@ -3296,6 +3502,7 @@
     "Flame Swordsdance",
     "Flame Swordsrealm",
     "Mirage Swordsman",
+    "Salamandra",
     "Salamandra Fusion",
     "Salamandra, the Flying Flame Dragon",
     "Ultimate Flame Swordsman"
@@ -3434,12 +3641,14 @@
     "Fossil Warrior Skull King",
     "Fossil Warrior Skull Knight",
     "Miracle Rupture",
+    "Shell Knight",
     "Specimen Inspection",
     "Time Stream",
     "Weathering Soldier"
   ],
   "Frightfur": [
     "Dangerous Frightfur Nightmary",
+    "Diffusion Wave-Motion",
     "Frightfur Chimera",
     "Frightfur Cruel Whale",
     "Frightfur Factory",
@@ -3468,6 +3677,7 @@
     "Submarine Frog",
     "Substitoad",
     "Swap Frog",
+    "T.A.D.P.O.L.E.",
     "Toad Master",
     "Toadally Awesome",
     "Tradetoad",
@@ -3601,7 +3811,9 @@
     "Gaia, the Polar Knight",
     "Galloping Gaia",
     "Heart of Gaia",
+    "Knight of Legend",
     "Lord Gaia the Fierce Knight",
+    "Skilled Blue Magician",
     "Sky Galloping Gaia the Dragon Champion",
     "Soldier Gaia the Fierce Knight",
     "Spiral Discharge",
@@ -3620,8 +3832,8 @@
     "Galaxy War Drake",
     "Galaxy-Eyes Antimatter Dragon",
     "Galaxy-Eyes Tachyon Primal",
-    "Lord of the Tachyon Galaxy",
     "Neo Galaxy-Eyes Photon Dragon - Photon Howling",
+    "Number 38: Hope Harbinger Dragon Titanic Galaxy",
     "Number S38: Titanic Galaxy",
     "Numbers Last Hope",
     "Numeron Creation"
@@ -3634,6 +3846,7 @@
     "Galaxy-Eyes Cloudragon",
     "Galaxy-Eyes Full Armor Photon Dragon",
     "Galaxy-Eyes Photon Dragon",
+    "Galaxy-Eyes Solflare Dragon",
     "Hyper Galaxy",
     "Neo Galaxy-Eyes Photon Dragon",
     "Number 107: Galaxy-Eyes Tachyon Dragon",
@@ -3654,6 +3867,9 @@
     "Gandora the Dragon of Destruction",
     "Gandora-G the Dragon of Destruction",
     "Gigarays Gandora the Dragon of Destruction"
+  ],
+  "Garbage": [
+    "Garbage Golem"
   ],
   "Gate Guardian": [
     "Elements of Thunder, Water, and Wind",
@@ -4006,7 +4222,8 @@
     "GMX Lab #5",
     "GMX Partner Selandea",
     "GMX Researcher Selande",
-    "GMX Suppression Squad"
+    "GMX Suppression Squad",
+    "Returned Dino Daneen"
   ],
   "Goblin": [
     "Goblin Biker Big Gabonga",
@@ -4058,6 +4275,7 @@
     "Gold Pride - The Crowd Goes Wild!"
   ],
   "Golden Castle of Stromberg": [
+    "Glass Slippers",
     "Glife the Phantom Bird",
     "Golden Castle of Stromberg",
     "Hexe Trude",
@@ -4080,7 +4298,8 @@
     "Gorgonic Gargoyle",
     "Gorgonic Ghoul",
     "Gorgonic Golem",
-    "Gorgonic Guardian"
+    "Gorgonic Guardian",
+    "Gorgonic Umbral Horror"
   ],
   "Gottoms": [
     "X-Saber Gottoms"
@@ -4121,6 +4340,8 @@
     "GranSolfachord Coolia"
   ],
   "Gravekeeper's": [
+    "A Cat of Ill Omen",
+    "An Owl of Luck",
     "Charm of Shabti",
     "Gravekeeper's Ambusher",
     "Gravekeeper's Assailant",
@@ -4154,7 +4375,8 @@
     "Necrovalley Temple",
     "Necrovalley Throne",
     "Rite of Spirit",
-    "Royal Tribute"
+    "Royal Tribute",
+    "Tomb of the Pharaoh"
   ],
   "Graydle": [
     "Graydle Alligator",
@@ -4174,6 +4396,7 @@
     "Dark Spirit Art - Greed",
     "Goblin of Greed",
     "Greed Grado",
+    "Jar Robber",
     "Jar Turtle",
     "Jar of Avarice",
     "Jar of Generosity",
@@ -4202,6 +4425,7 @@
     "Dark Grepher",
     "Knight Day Grepher",
     "Lightray Grepher",
+    "Ryu Senshi",
     "Warrior Dai Grepher"
   ],
   "Guardian": [
@@ -4224,10 +4448,12 @@
     "Guardian Tryce",
     "Guardian of Felgrand",
     "Guardian of Order",
+    "Guardian of the Labyrinth",
     "Guardian of the Throne Room",
     "Guardian of the Voiceless Voice",
     "Lost Guardian",
     "Metal Guardian",
+    "Novox's Prayer",
     "Power of the Guardians",
     "Reaper Scythe - Dreadscythe",
     "Riryoku Guardian",
@@ -4236,9 +4462,12 @@
     "Skull Guardian",
     "Skull Guardian, Protector of the Voiceless Voice",
     "Stronghold Guardian",
+    "The Reliable Guardian",
     "Trust Guardian",
     "Twin Swords of Flashing Light - Tryce",
-    "Wicked-Breaking Flamberge - Baou"
+    "Wicked-Breaking Flamberge - Baou",
+    "Winged Dragon, Guardian of the Fortress #1",
+    "Winged Dragon, Guardian of the Fortress #2"
   ],
   "Guardragon": [
     "Guardragon Agarpain",
@@ -4353,7 +4582,6 @@
     "Tearlaments Kaleido-Heart"
   ],
   "Hecahands": [
-    "Hecahands",
     "Hecahands Bait",
     "Hecahands Breus",
     "Hecahands Dandalos",
@@ -4366,6 +4594,7 @@
     "Hecahands Xeno",
     "Hecahands Yadel",
     "Ib'al-Hecahands",
+    "The Hidden Hecahands",
     "Yad'al-Hecahands"
   ],
   "Herald": [
@@ -4518,7 +4747,9 @@
     "Hapi, Guidance of Horus",
     "Horus the Black Flame Deity",
     "Imsety, Glory of Horus",
-    "Qebehsenuef, Protection of Horus"
+    "King's Sarcophagus",
+    "Qebehsenuef, Protection of Horus",
+    "Walls of the Imperial Tomb"
   ],
   "Horus the Black Flame Dragon": [
     "Horus the Black Flame Dragon LV4",
@@ -4548,6 +4779,7 @@
     "Defender of the Ice Barrier",
     "Dewdark of the Ice Barrier",
     "Dewloren, Tiger King of the Ice Barrier",
+    "Ekhajar, Descendant Dragon of the Ice Barrier",
     "Freezing Chains of the Ice Barrier",
     "Frozen Domain of the Ice Barrier",
     "General Gantala of the Ice Barrier",
@@ -4561,6 +4793,7 @@
     "Ice Barrier",
     "Ice Coffin Token",
     "Judge of the Ice Barrier",
+    "Lancea, Ancestral Dragon of the Ice Mountain",
     "Magic Triangle of the Ice Barrier",
     "Medallion of the Ice Barrier",
     "Medium of the Ice Barrier",
@@ -4711,6 +4944,7 @@
     "Infestation Wave"
   ],
   "Infinitrack": [
+    "Crusher Run",
     "Heavy Forward",
     "Infinitrack Anchor Drill",
     "Infinitrack Brutal Dozer",
@@ -4731,12 +4965,15 @@
   "Invoked": [
     "Aleister the Invoker",
     "Aleister the Invoker of Madness",
+    "Gamma Summon",
     "Hyperinvoked Aeon",
     "Invocation",
+    "Invocation - \"Sword\"",
     "Invoked Augoeides",
     "Invoked Baybarron",
     "Invoked Caliga",
     "Invoked Cocytus",
+    "Invoked Dee Anima",
     "Invoked Elysium",
     "Invoked Magellanica",
     "Invoked Magistus Omega",
@@ -4747,7 +4984,8 @@
     "Invoked Sorath",
     "Magical Meltdown",
     "Omega Summon",
-    "The Book of the Law"
+    "The Book of the Law",
+    "Virakam, the Divine Spirit of Artifice"
   ],
   "Inzektor": [
     "Armor Blast",
@@ -4793,9 +5031,11 @@
     "Legion the Fiend Jester"
   ],
   "Jinzo": [
+    "Amplifier",
     "Cosmos Channelling",
     "Cyber Energy Shock",
     "Everlasting Alloy",
+    "It's Jinzo!",
     "Jinzo",
     "Jinzo #7",
     "Jinzo - Jector",
@@ -4809,8 +5049,11 @@
     "Psychic Wave"
   ],
   "Junk": [
+    "Anchorbolt Hedgehog",
     "Catapult Warrior",
+    "Crossroad Sonic Chick",
     "Jet Synchron",
+    "Jet Warrior",
     "Junk Anchor",
     "Junk Archer",
     "Junk Armor",
@@ -4951,7 +5194,8 @@
     "Kashtira Unicorn",
     "Kashtiratheosis",
     "Scareclaw Kashtira",
-    "Tearlaments Kashtira"
+    "Tearlaments Kashtira",
+    "Vicious Astraloud"
   ],
   "Kewl Tune": [
     "JJ \"Kewl Tune\"",
@@ -4986,6 +5230,9 @@
     "Joker's Wild",
     "King's Knight",
     "Queen's Knight",
+    "Royal Flush",
+    "Royal Straight",
+    "Royal Straight Slasher",
     "Thunderspeed Summon"
   ],
   "Knightmare": [
@@ -5048,16 +5295,19 @@
   ],
   "Koala": [
     "Big Koala",
+    "Des Kangaroo",
     "Des Koala",
     "Koalo-Koala",
     "Master of Oz",
     "Sea Koala",
+    "Tree Otter",
     "Vampiric Koala"
   ],
   "Konami Arcade Games": [
     "Gray Layer",
     "Option Token",
-    "Vic Viper Type-L"
+    "Vic Viper Type-L",
+    "Victory Viper XX03"
   ],
   "Kozmo": [
     "DOG Fighter Token",
@@ -5108,6 +5358,7 @@
     "Darkuriboh",
     "Detonate",
     "Detonating Kuriboh",
+    "Five Star Twilight",
     "Kuribabylon",
     "Kuribah",
     "Kuribandit",
@@ -5194,6 +5445,7 @@
     "Soaring Eagle Above the Searing Land"
   ],
   "Legendary Knight": [
+    "Crush Card Virus",
     "Destruction Dragon",
     "Doom Virus Dragon",
     "Goddess Bow",
@@ -5201,14 +5453,17 @@
     "Legendary Knight Critias",
     "Legendary Knight Hermos",
     "Legendary Knight Timaeus",
+    "Mirror Force",
     "Mirror Force Dragon",
+    "Ring of Destruction",
     "Rocket Hermos Cannon",
     "The Claw of Hermos",
     "The Fang of Critias",
     "Timaeus the Knight of Destiny",
     "Timaeus the United Dragon",
     "Time Magic Hammer",
-    "Tyrant Burst Dragon"
+    "Tyrant Burst Dragon",
+    "Tyrant Wing"
   ],
   "Libromancer": [
     "Libromancer Agent",
@@ -5244,7 +5499,8 @@
     "Light and Darkness Ritual",
     "Magician of Dark Chaos - Black Chaos",
     "Mind Shuffle",
-    "Skull Archfiend of Chaos"
+    "Skull Archfiend of Chaos",
+    "Spell Shattering Sword"
   ],
   "Lightsworn": [
     "Aurkus, Lightsworn Druid",
@@ -5252,6 +5508,7 @@
     "Charge of the Light Brigade",
     "Curious, the Lightsworn Dominion",
     "Ehren, Lightsworn Monk",
+    "Enlightenment Dragon",
     "Felis, Lightsworn Archer",
     "Garoth, Lightsworn Warrior",
     "Glorious Illusion",
@@ -5342,6 +5599,7 @@
     "Lunalight Purple Butterfly",
     "Lunalight Reincarnation Dance",
     "Lunalight Sabre Dancer",
+    "Lunalight Scarlet Tiger",
     "Lunalight Serenade Dance",
     "Lunalight Silver Hound",
     "Lunalight Tiger",
@@ -5482,8 +5740,10 @@
     "Star Pendulumgraph",
     "Stargazer Magician",
     "Supreme King Gate Magician",
+    "Thousand Dragon",
     "Time Pendulumgraph",
     "Time Wizard",
+    "Time Wizard of Tomorrow",
     "Timebreaker Magician",
     "Timegazer Magician",
     "Wavering Eyes",
@@ -5561,6 +5821,7 @@
     "Gamma the Magnet Warrior",
     "Imperion Magnum the Superconductive Battlebot",
     "Magnet Induction",
+    "Magnetic Attraction",
     "Valkyrion the Magna Warrior"
   ],
   "Majespecter": [
@@ -5699,6 +5960,7 @@
     "Masked Beast Des Gardius",
     "Melchid the Four-Face Beast",
     "Nuvia the Wicked",
+    "Spell of Mask",
     "Spell of Mask (Skill Card)",
     "The Mask of Remnants",
     "The Masked Beast"
@@ -5715,6 +5977,10 @@
     "Masked HERO Goka",
     "Masked HERO Koga",
     "Masked HERO Vapor"
+  ],
+  "Masquerade": [
+    "Number 104: Masquerade Vain",
+    "Number C104: Umbral Horror Masquerade Victory"
   ],
   "Materiactor": [
     "Materiactor Annulus",
@@ -5793,6 +6059,9 @@
     "Scramble!! Scramble!!",
     "Sonic Boom",
     "Vertical Landing"
+  ],
+  "Medius": [
+    "Theorealize Medius"
   ],
   "Megalith": [
     "Megalith Anastasis",
@@ -5972,8 +6241,12 @@
   ],
   "Metalmorph": [
     "Flame Coating Metalmorph",
+    "Incoming Machine!",
     "Max Metalmorph",
-    "Time Engine"
+    "Metal Illusionist",
+    "Metalflame Swordsman",
+    "Time Engine",
+    "Zoa the Fiendish Beast"
   ],
   "Metaphys": [
     "Asymmetaphys",
@@ -6071,6 +6344,7 @@
     "Mitsurugi no Mikoto, Saji"
   ],
   "Mokey Mokey": [
+    "Mokey Mokey",
     "Mokey Mokey Adrift"
   ],
   "Monarch": [
@@ -6159,6 +6433,7 @@
     "Power-Up Adapter"
   ],
   "Motor": [
+    "Engine Token",
     "Motor Kaiser",
     "Two-for-One Repair Job"
   ],
@@ -6410,6 +6685,7 @@
     "Angelica, Princess of Noble Arms",
     "Camelot, Realm of Noble Knights and Noble Arms",
     "Cursed Copycat Noble Arms",
+    "Disguise, the Copycat Hero",
     "Noble Arms Museum"
   ],
   "Noble Knight": [
@@ -6506,8 +6782,10 @@
     "Poissonniere de Nouvelles"
   ],
   "Number": [
+    "Number 101: Silent Honor ARK - Soul Asylum",
     "Number 1: Infection Buzzking",
     "Number 32: Shark Drake",
+    "Number 37: Hope Woven Dragon Spider Shark",
     "Number 39: Utopia Rising",
     "Number 39: Utopia, Emissary of Light",
     "Number 99: Utopia Dragonar",
@@ -6543,6 +6821,7 @@
     "Odd-Eyes Gravity Dragon",
     "Odd-Eyes Lancer Dragon",
     "Odd-Eyes Meteorburst Dragon",
+    "Odd-Eyes Override Dragon",
     "Odd-Eyes Pendulum Dragon of the Four Heavenly Dragons",
     "Odd-Eyes Pendulumgraph Dragon",
     "Odd-Eyes Rebellion Xyz Dragon",
@@ -6653,6 +6932,7 @@
     "Ukiyoe-P.U.N.K. Sharakusai"
   ],
   "Paladins of Dragons": [
+    "Armor Dragon Ritual",
     "Knight of Armor Dragon"
   ],
   "Paleozoic": [
@@ -6674,6 +6954,7 @@
   "Parasite": [
     "Drill Bug",
     "Fusion Parasite",
+    "Kahyoreigetsu",
     "Metallizing Parasite - Lunatite",
     "Metallizing Parasite - Soltite",
     "Parasite Paracide",
@@ -6754,6 +7035,7 @@
   ],
   "Performapal": [
     "Command Performance",
+    "Hippo Token",
     "Illusion Balloons",
     "Last Minute Cancel",
     "Performance Hurricane",
@@ -6845,8 +7127,7 @@
     "Super Hippo Carnival"
   ],
   "Phantasm": [
-    "Destruction Chant of the Sacred Beast",
-    "Divine Abyss of the Sacred Beast",
+    "Abyss of the Sacred Beasts",
     "Fallen Paradise of the Sacred Beasts",
     "Hamon, Lord of Striking Thunder - Sacred Beast of Sinful Catastrophe",
     "Illusion Gate",
@@ -6855,10 +7136,11 @@
     "Phantasmal Martyr Token",
     "Phantasmal Summoning Beast",
     "Raviel, Lord of Phantasms - Sacred Beast of Endless Eternity",
-    "Skyfire of the Sacred Beast",
+    "Sacred Beasts Combined Assault",
+    "Sacred Beasts Released",
+    "Sacred Beasts Thunderclap",
+    "Summoner of the Sacred Beasts",
     "The Chaotic Phantasmal Sacred Beasts",
-    "The Orchestrator of the Sacred Beasts",
-    "Unleashing the Sacred Beasts",
     "Uria, Lord of Searing Flames - Sacred Beast of Cataclysmic Fire"
   ],
   "Phantasm Spiral": [
@@ -6997,6 +7279,7 @@
   "Power Patron": [
     "Junora the Power Patron of Tuning",
     "Jupiter the Power Patron of Destruction",
+    "Medicurius the Power Patron of Illusions",
     "Nerva the Power Patron of Creation",
     "Plundered Power Patron Plane - Vidolia",
     "Power Patron Shade of the Final Hour",
@@ -7008,6 +7291,7 @@
   "Power Tool": [
     "Double Tool C&D",
     "Duel Link Dragon, the Duel Dragon",
+    "Life Extreme",
     "Life Stream Dragon",
     "Power Break",
     "Power Tool Braver Dragon",
@@ -7083,7 +7367,8 @@
     "Prediction Princess Petalelf",
     "Prediction Princess Tarotrei",
     "Prediction Princess Tarotreith",
-    "Prediction Ritual"
+    "Prediction Ritual",
+    "Underworld Ritual of Prediction"
   ],
   "Priestess": [
     "High Priestess of Prophecy",
@@ -7103,6 +7388,7 @@
     "Ancient Sorcerer",
     "Dark Magical Circle",
     "Dark Magical Curtain",
+    "Dark Paladin - Wave-Motion",
     "Sorcerer of Sebek"
   ],
   "PSY-Frame": [
@@ -7122,6 +7408,7 @@
   ],
   "Puppet": [
     "Promotion",
+    "Puppet King",
     "Puppet Pawn",
     "Puppet Queen",
     "Puppet Rook",
@@ -7182,6 +7469,7 @@
     "Dangers of the Divine"
   ],
   "Radiant Typhoon": [
+    "Mystical Space Typhoon",
     "Radiant Typhoon Ascendance",
     "Radiant Typhoon Chant",
     "Radiant Typhoon Eldam",
@@ -7276,7 +7564,8 @@
     "Chef's Special Recipe",
     "Recette de Personnel (Staff Recipe)",
     "Recette de Poisson (Fish Recipe)",
-    "Recette de Viande (Meat Recipe)"
+    "Recette de Viande (Meat Recipe)",
+    "Voici la Carte (Today's Menu)"
   ],
   "Recolored counterpart": [
     "Abyss Flower",
@@ -7290,6 +7579,7 @@
     "Ghoul with an Appetite",
     "Giant Scorpion of the Tundra",
     "Ill Witch",
+    "Larvas",
     "Leo Wizard",
     "Living Vase",
     "Machine Attacker",
@@ -7312,11 +7602,13 @@
     "Cards of the Red Stone",
     "Dark Dragon Ritual",
     "Darkness Metal, the Dragon of Dark Steel",
+    "Forged Steel",
     "Gearfried the Red-Eyes Iron Knight",
     "Inferno Fire Blast",
     "Lord of the Red",
     "Meteor Black Comet Dragon",
     "Meteor Black Dragon",
+    "Meteor Dragon",
     "Meteor Dragon Red-Eyes Impact",
     "Paladin of Dark Dragon",
     "Red-Eyes Alternative Black Dragon",
@@ -7519,6 +7811,7 @@
     "Speed Recovery",
     "Speedlift",
     "Speedroid Colonel Clackers",
+    "Speedroid Darumaknocker",
     "Speedroid Den-Den Daiko Duke",
     "Speedroid Dominobutterfly",
     "Speedroid Double Yoyo",
@@ -7580,6 +7873,7 @@
     "Shelrokket Dragon",
     "Silverrokket Dragon",
     "Squib Draw",
+    "Striker Dragon",
     "Tactical Exchanger"
   ],
   "Roland": [
@@ -7609,6 +7903,7 @@
     "Blooming of the Darkest Rose",
     "Blue Rose Dragon",
     "Crossrose Dragon",
+    "Feral Imp",
     "Frozen Rose",
     "Garden Rose Maiden",
     "Mark of the Rose",
@@ -7620,14 +7915,17 @@
     "Rose Fairy",
     "Rose Lover",
     "Rose Paladin",
+    "Rose Princess",
     "Rose Spectre of Dunn",
     "Rose Tentacles",
     "Rose Token",
     "Rose Witch",
     "Rose, Warrior of Revenge",
+    "Snakeyashi",
     "Splendid Rose",
     "Thorn of Malice",
     "Twilight Rose Knight",
+    "Vengeful Witch",
     "White Rose Cloister",
     "White Rose Dragon",
     "Witch of the Black Rose"
@@ -7717,13 +8015,18 @@
     "Chaos Core",
     "Chaos Summoning Beast",
     "Dark Beckoning Beast",
+    "Dark Summoning Beast",
     "Fallen Paradise",
     "Hamon, Lord of Striking Thunder",
     "Hyper Blaze",
     "Opening of the Spirit Gates",
+    "Phantasmal Martyrs",
     "Raviel, Lord of Phantasms",
     "Raviel, Lord of Phantasms - Shimmering Scraper",
-    "Uria, Lord of Searing Flames"
+    "Shimmering Shatterer of the Sacred Beasts",
+    "Unlocking the Power",
+    "Uria, Lord of Searing Flames",
+    "Victory of the Shadow Riders"
   ],
   "Salamandra": [
     "Salamandra with Chain"
@@ -7848,6 +8151,18 @@
     "Secret Six Samurai - Kizaru",
     "Secret Six Samurai - Rihan"
   ],
+  "Sennet": [
+    "Am Duasennet",
+    "Beresennet Em Heru",
+    "Sennet Cataract",
+    "Sennet Per Akh",
+    "Sennet Prophet - Amenhotep",
+    "Sennet Prophet - Nefertari",
+    "Sennet Thunderfall",
+    "Sennetmes Nekhbet",
+    "Sennetnakht Sphinx",
+    "Tausennet Wadjet"
+  ],
   "Serket": [
     "Divine Scorpion Beast of Serket",
     "Merciless Scorpion of Serket"
@@ -7896,6 +8211,7 @@
     "Tohushaddoll Grysta"
   ],
   "Shark": [
+    "Aqua Jet",
     "Corroding Shark",
     "Crystal Shark",
     "Cutter Shark",
@@ -7959,6 +8275,7 @@
   "Signature move": [
     "Absolute Powerforce",
     "Double Attack! Wind and Thunder!!",
+    "LeVirtue Dragon",
     "Metalzoa X",
     "Nightmare Pain",
     "Tachyon Spiral of Destruction",
@@ -8074,6 +8391,8 @@
     "Skilled Brown Magician"
   ],
   "Skull Servant": [
+    "Battle Warrior",
+    "Dissolverock",
     "Flame Ghost",
     "King of the Skull Servants",
     "Skull Servant",
@@ -8135,6 +8454,7 @@
     "Jam Breeding Machine",
     "Jam Defender",
     "Magical Reflect Slime",
+    "Man-Eating Black Shark",
     "Metal Reflect Slime",
     "Revival Jam",
     "Slime Token"
@@ -8277,6 +8597,7 @@
     "Spright Starter"
   ],
   "Springans": [
+    "Great Sand Sea - Gold Golgonda",
     "Gung-Ho! Springans!",
     "Springans Blast!",
     "Springans Booty",
@@ -8333,6 +8654,8 @@
   "Stardust": [
     "Accel Synchro Stardust Dragon",
     "Arrive in Light",
+    "Converging Wishes",
+    "Shooting Star Dragon",
     "Stardust Charge Warrior",
     "Stardust Chronicle Spark Dragon",
     "Stardust Dragon",
@@ -8350,7 +8673,8 @@
     "Stardust Warrior",
     "Stardust Wish",
     "Stardust Wurm",
-    "Stardust Xiaolong"
+    "Stardust Xiaolong",
+    "Starlight Road"
   ],
   "Starliege": [
     "Starliege Seyfert"
@@ -8523,6 +8847,7 @@
   ],
   "Supreme King": [
     "Miracle of the Supreme King",
+    "Pendulum Evolution",
     "Soul of the Supreme Celestial King",
     "Soul of the Supreme King",
     "Supreme King Dragon Dark Rebellion",
@@ -8533,7 +8858,8 @@
     "Supreme King Gate Zero",
     "Supreme King Z-ARC",
     "Supreme King Z-ARC - Synchro Universe",
-    "Supreme Rage"
+    "Supreme Rage",
+    "Wings of Light"
   ],
   "Swamp": [
     "Sorcerer of the Swamp"
@@ -8584,6 +8910,7 @@
     "Sylvan Waterslide"
   ],
   "Symphonic Warrior": [
+    "Generalprobe",
     "Symph Amplifire",
     "Symphonic Warrior Basses",
     "Symphonic Warrior DJJ",
@@ -8616,16 +8943,20 @@
     "Assault Synchron",
     "Bri Synchron",
     "Changer Synchron",
+    "Chevalier de Fleur",
     "Cyberse Synchron",
     "Drill Synchron",
+    "Drill Warrior",
     "Fleur Synchron",
     "Formula Synchron",
     "Hyper Synchron",
     "Mono Synchron",
     "Necro Synchron",
     "Nitro Synchron",
+    "Nitro Warrior",
     "Quickdraw Synchron",
     "Road Synchron",
+    "Road Warrior",
     "Satellite Synchron",
     "Steam Synchron",
     "Synchron Carrier",
@@ -8633,6 +8964,7 @@
     "Synchron Token",
     "Synchronized Realm",
     "Turbo Synchron",
+    "Turbo Warrior",
     "Unknown Synchron"
   ],
   "T.G.": [
@@ -8672,6 +9004,7 @@
     "TGX300"
   ],
   "Tachyon": [
+    "Lord of the Tachyon Galaxy",
     "Tachyon Cloudragon"
   ],
   "Tearlaments": [
@@ -8747,8 +9080,15 @@
     "Test Bear"
   ],
   "The Agent": [
+    "Archlord Zerato",
+    "Divine Punishment",
+    "Light of Judgment",
     "Master Hyperion",
+    "Meltiel, Sage of the Sky",
+    "Minerva, Scholar of the Sky",
+    "Mystical Shine Ball",
     "Protector of The Agents - Moon",
+    "Radiant Jeral",
     "The Agent of Creation - Venus",
     "The Agent of Destruction - Venus",
     "The Agent of Entropy - Uranus",
@@ -8758,6 +9098,7 @@
     "The Agent of Miracles - Jupiter",
     "The Agent of Mystery - Earth",
     "The Agent of Wisdom - Mercury",
+    "The Chorus in the Sky",
     "The Executor of the Underworld - Pluto",
     "The Sacred Waters in the Sky",
     "The Sanctuary in the Sky"
@@ -8789,6 +9130,7 @@
     "Theorealize Past Lull"
   ],
   "Therion": [
+    "Endless Engine Argyro System",
     "Therion \"Bull\" Ain",
     "Therion \"Duke\" Yul",
     "Therion \"Empress\" Alasia",
@@ -8892,7 +9234,11 @@
   ],
   "Toon": [
     "Blue-Eyes Toon Dragon",
+    "Comic Cat",
     "Comic Hand",
+    "Dark-Eyes Illusionist Faceless Mage",
+    "Evil Box",
+    "Funny Dark Rabbit",
     "Manga Ryu-Ran",
     "Mimicat",
     "Parrot Dragon",
@@ -8915,13 +9261,15 @@
     "Toon Kingdom",
     "Toon Mask",
     "Toon Masked Sorcerer",
+    "Toon Mayhem!",
     "Toon Mermaid",
     "Toon Page-Flip",
     "Toon Rollback",
     "Toon Summoned Skull",
     "Toon Table of Contents",
     "Toon Terror",
-    "Toon World"
+    "Toon World",
+    "Toon World the Perfect World"
   ],
   "Topologic": [
     "Topologic Blaster Dragon"
@@ -8975,6 +9323,7 @@
   "Trap Monster": [
     "Angel Statue - Azurune",
     "Apophis the Swamp Deity",
+    "Distrust Paranoia",
     "Kuebiko",
     "Mimesis Elephant",
     "Prey of the Jirai Gumo",
@@ -9100,11 +9449,16 @@
   ],
   "Umbral Horror": [
     "Corrupted Keys",
+    "Number 104: Masquerade",
     "Number C104: Umbral Horror Masquerade",
+    "Shining Umbral Horror",
+    "Thousand Umbral Horror",
     "Umbral Horror Ghost",
     "Umbral Horror Ghoul",
+    "Umbral Horror Mirage Token",
     "Umbral Horror Unform",
-    "Umbral Horror Will o' the Wisp"
+    "Umbral Horror Will o' the Wisp",
+    "V Umbral Horror"
   ],
   "Umi": [
     "A Legendary Ocean",
@@ -9114,6 +9468,7 @@
     "Catch of the Day",
     "Citadel Whale",
     "Codarus",
+    "Coralianektes the Shimmering Shining Dragon",
     "Deepsea Warrior",
     "Doom Kraken",
     "Electric Jellyfish",
@@ -9129,6 +9484,7 @@
     "Mermaid Knight",
     "Mythic Depths",
     "Ocean Dragon Lord - Neo-Daedalus",
+    "Orca Mega-Fortress of Darkness",
     "Rage of Kairyu-Shin",
     "Sea Stealth Attack",
     "Terror from the Deep!",
@@ -9137,7 +9493,10 @@
     "The Legendary Fisherman III",
     "Tornado Wall",
     "Torpedo Fish",
-    "Umi"
+    "Torrential Tribute",
+    "Umi",
+    "Warrior of Atlantis",
+    "Yorishiro of the Aqua"
   ],
   "Unchained": [
     "Abominable Chamber of the Unchained",
@@ -9190,6 +9549,7 @@
     "Ursarctic Slider"
   ],
   "Utopia": [
+    "Double or Nothing!",
     "Future Drive",
     "Halfway to Forever",
     "Light Wing Shield",
@@ -9203,6 +9563,7 @@
     "Number C39: Utopia Ray V",
     "Number C39: Utopia Ray Victory",
     "Number F0: Utopic Draco Future",
+    "Number F0: Utopic Future",
     "Number F0: Utopic Future Slash",
     "Number S0: Utopic ZEXAL",
     "Number S39: Utopia Prime",
@@ -9215,6 +9576,7 @@
     "SZW - Fenrir Sword",
     "Shining Draw",
     "Shining Hope Road",
+    "The Deal of Destiny",
     "The Door of Destiny",
     "Utopia Buster",
     "Utopic Onomatopoeia",
@@ -9308,7 +9670,8 @@
     "Vampire Voivode",
     "Vampire's Curse",
     "Vampire's Desire",
-    "Vampire's Domain"
+    "Vampire's Domain",
+    "Vampiric Aristocracy"
   ],
   "Vanquish Soul": [
     "Rock of the Vanquisher",
@@ -9343,6 +9706,7 @@
     "Hojo the Vaylantz Warrior",
     "Mamonaka the Vaylantz United",
     "Saion the Vaylantz Archer",
+    "Senet Switch",
     "Shinonome the Vaylantz Priestess",
     "Vaylantz Buster Baron",
     "Vaylantz Dominator Duke",
@@ -9384,6 +9748,7 @@
   ],
   "Venom": [
     "Ambush Fangs",
+    "Rise of the Snake Deity",
     "Snake Deity's Command",
     "Starving Venemy Lethal Dose Dragon",
     "Starving Venom Fusion Dragon",
@@ -9454,18 +9819,21 @@
     "Radiance of the Voiceless Voice",
     "Saffira, Divine Dragon of the Voiceless Voice",
     "Saffira, Dragon Queen of the Voiceless Voice",
-    "Sauravis, Dragon Sage of the Voiceless Voice"
+    "Saffira, Queen of Dragons",
+    "Sauravis, Dragon Sage of the Voiceless Voice",
+    "Sauravis, the Ancient and Ascended"
   ],
   "Void": [
     "Contract with the Void",
     "Void Apocalypse",
     "Void Breach",
     "Void Cauldron",
-    "Void Liberation",
-    "Void Reignition"
+    "Void Reignition",
+    "Void Unleashing"
   ],
   "Volcanic": [
     "Fire Ejection",
+    "Jurassic World",
     "Volcanic Blaster",
     "Volcanic Cannon",
     "Volcanic Counter",
@@ -9581,6 +9949,7 @@
   ],
   "White": [
     "Arbitration of White",
+    "Divine Dragon Token",
     "White Aura Bihamut",
     "White Aura Dolphin",
     "White Aura Monoceros",
@@ -9814,6 +10183,7 @@
   "Xyz": [
     "Armored Shark",
     "Armored Xyz",
+    "CXyz Chaos Barian Hope Dragon",
     "Endless Bond",
     "Full-Armored Xyz",
     "Reincarnation Unveiling Mail",
@@ -9876,6 +10246,10 @@
     "Yosenjus' Sword Sting"
   ],
   "Yubel": [
+    "Geistgrinder Golem",
+    "Gruesome Grave Squirmer",
+    "Mature Chronicle",
+    "Nightmare Throne",
     "Spirit of Yubel",
     "Yubel",
     "Yubel - Terror Incarnate",

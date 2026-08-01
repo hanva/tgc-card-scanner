@@ -224,6 +224,72 @@ async function fetchFromFandom(archetype: string): Promise<string[]> {
   return [];
 }
 
+// ─── Cartes liées par citation de texte ──────────────────────────────────────
+
+/**
+ * Ajoute les cartes LIÉES à un archétype via les citations officielles des textes de cartes.
+ * Ex: "Prinzessin" cite "Glass Slippers" → Glass Slippers rejoint Golden Castle of Stromberg.
+ *
+ * Règle STRICTE (pas de matching par nom, uniquement le texte officiel) :
+ *  - la carte candidate n'a AUCUN archétype officiel et n'est membre d'aucun résultat ;
+ *  - elle est citée par (ou cite) les membres d'EXACTEMENT UN archétype
+ *    → les staples génériques cités partout sont exclus d'office.
+ */
+async function addCitedRelatives(result: Record<string, string[]>): Promise<void> {
+  console.log("\nFetching full card dump for citation pass...");
+  const res = await fetch("https://db.ygoprodeck.com/api/v7/cardinfo.php");
+  if (!res.ok) {
+    console.log("  dump failed, skipping citation pass");
+    return;
+  }
+  const all: { name: string; desc?: string; archetype?: string }[] = (await res.json()).data || [];
+  console.log(`  ${all.length} cards in dump`);
+
+  const byName = new Map(all.map((c) => [c.name, c]));
+  const memberOf = new Map<string, string[]>();
+  for (const [a, names] of Object.entries(result)) {
+    for (const n of names) (memberOf.get(n) || memberOf.set(n, []).get(n)!).push(a);
+  }
+
+  const QUOTE = /"([^"]+)"/g;
+  const citedBy = new Map<string, Set<string>>(); // carte candidate → archétypes qui la lient
+
+  // Sens 1 : un membre cite la carte dans son texte
+  for (const [a, names] of Object.entries(result)) {
+    for (const n of names) {
+      const card = byName.get(n);
+      if (!card?.desc) continue;
+      for (const m of card.desc.matchAll(QUOTE)) {
+        const q = m[1];
+        const qc = byName.get(q);
+        if (!qc || qc.archetype || memberOf.has(q)) continue;
+        (citedBy.get(q) || citedBy.set(q, new Set()).get(q)!).add(a);
+      }
+    }
+  }
+  // Sens 2 : la carte (sans archétype) cite un membre dans son texte
+  for (const c of all) {
+    if (c.archetype || memberOf.has(c.name) || !c.desc) continue;
+    for (const m of c.desc.matchAll(QUOTE)) {
+      const archs = memberOf.get(m[1]);
+      if (archs) for (const a of archs) (citedBy.get(c.name) || citedBy.set(c.name, new Set()).get(c.name)!).add(a);
+    }
+  }
+
+  let added = 0;
+  for (const [cardName, archs] of citedBy) {
+    if (archs.size !== 1) continue; // cité par 2+ archétypes → générique, on exclut
+    const a = [...archs][0];
+    if (!result[a].includes(cardName)) {
+      result[a].push(cardName);
+      result[a].sort();
+      added++;
+      console.log(`  + ${cardName} → ${a}`);
+    }
+  }
+  console.log(`Citation pass: ${added} related cards added`);
+}
+
 // ─── Main ────────────────────────────────────────────────────────────────────
 
 async function main() {
@@ -246,6 +312,9 @@ async function main() {
       failedArchetypes.push(archetype);
     }
   }
+
+  // Cartes liées par citation de texte officiel (ex: Glass Slippers → Golden Castle of Stromberg)
+  await addCitedRelatives(result);
 
   // Write the result
   const outputPath = path.join(__dirname, "../src/data/archetype-cards.json");

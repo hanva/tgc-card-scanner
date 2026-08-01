@@ -315,3 +315,35 @@ export async function searchYugipedia(query: string): Promise<YgoCard[]> {
 
   return [];
 }
+
+/**
+ * Résout un code de set (ex "DUAD-EN073") via les redirects Yugipedia :
+ * la page "DUAD-EN073" redirige vers la fiche de la carte ("Spring").
+ * Indispensable pour les sets récents que YGOProDeck n'a pas encore.
+ * Retourne le NOM ANGLAIS de la carte, ou null.
+ */
+export async function resolveSetCodeToName(enCode: string): Promise<string | null> {
+  const url = `${API_BASE}?action=query&titles=${encodeURIComponent(enCode)}&redirects=1&format=json`;
+  try {
+    const res = await fetch(url);
+    if (!res.ok) return null;
+    const json = await res.json();
+    const to = json?.query?.redirects?.[0]?.to;
+    if (typeof to === "string" && to && !/^Set Card/i.test(to)) return to;
+    return null;
+  } catch {
+    return null;
+  }
+}
+
+/** Fiche carte Yugipedia par nom EN exact (fallback quand YGOProDeck ne l'a pas). */
+export async function getYugipediaCardByName(enName: string): Promise<YgoCard | null> {
+  const data = await fetchCardPage(enName.replace(/\s+/g, "_"));
+  return data ? toYgoCard(data, -Math.abs(hashCode(enName))) : null;
+}
+
+function hashCode(s: string): number {
+  let h = 0;
+  for (let i = 0; i < s.length; i++) h = (Math.imul(31, h) + s.charCodeAt(i)) | 0;
+  return h || 1;
+}

@@ -1,12 +1,14 @@
 import { YgoCard, YgoApiResponse } from "../types/card";
-import { searchYugipedia } from "./yugipedia";
+import { searchYugipedia, resolveSetCodeToName, getYugipediaCardByName } from "./yugipedia";
+import { storeCard, searchLocalBySetCode, searchLocalByName } from "./cardStore";
 
 const BASE_URL = "https://db.ygoprodeck.com/api/v7/cardinfo.php";
 
 const cache = new Map<string, YgoCard>();
 
-function cacheCard(card: YgoCard) {
+function cacheCard(card: YgoCard, extraSetCode?: string) {
   cache.set(String(card.id), card);
+  storeCard(card, extraSetCode); // base locale persistante (index par set code)
 }
 
 /**
@@ -34,6 +36,10 @@ async function searchBySetCode(code: string): Promise<YgoCard[]> {
   const fixedEn = toEn(fixed);
   if (fixedEn !== candidates[0]) candidates.push(fixedEn);
 
+  // 0. Base locale : carte déjà croisée avec ce code → offline instantané
+  const local = searchLocalBySetCode(fixed);
+  if (local.length > 0) return local;
+
   let res: Response | null = null;
   for (const enCode of candidates) {
     try {
@@ -43,8 +49,30 @@ async function searchBySetCode(code: string): Promise<YgoCard[]> {
       if (r.ok) { res = r; break; }
     } catch {}
   }
+  // YGOProDeck n'a pas encore les sets récents → fallback Yugipedia
+  // (la page "DUAD-EN073" redirige vers la fiche de la carte).
+  if (!res?.ok) {
+    for (const enCode of candidates) {
+      const enName = await resolveSetCodeToName(enCode);
+      if (!enName) continue;
+      // La fiche Yugipedia donne le nom FR ; YGOProDeck (EN) donne les données riches
+      // (souvent la carte y existe — c'est juste son index de sets qui est en retard).
+      const wikiCard = await getYugipediaCardByName(enName);
+      const card = await getCardByExactName(enName, "en");
+      if (card) {
+        card.name_en = card.name_en || card.name;
+        if (wikiCard && wikiCard.name && wikiCard.name !== card.name_en) card.name = wikiCard.name; // nom FR
+        cacheCard(card, fixed);
+        return [card];
+      }
+      if (wikiCard) {
+        cacheCard(wikiCard, fixed);
+        return [wikiCard];
+      }
+    }
+    return [];
+  }
   try {
-    if (!res?.ok) return [];
     const json = await res.json();
     const cardId = json?.id;
     if (!cardId) return [];
@@ -95,12 +123,55 @@ async function searchBySetCode(code: string): Promise<YgoCard[]> {
   }
 }
 
+/** Tri par numéro dans le set (DUAD-…001 avant …073). */
+function bySetNumber(prefix: string) {
+  const num = (c: YgoCard) => {
+    for (const s of c.card_sets || []) {
+      const m = (s.set_code || "").toUpperCase().match(new RegExp(`^${prefix}-\\D*(\\d+)`));
+      if (m) return parseInt(m[1], 10);
+    }
+    return 9999;
+  };
+  return (a: YgoCard, b: YgoCard) => num(a) - num(b);
+}
+
+/** "DUAD-FR" / "DUAD-" → toutes les cartes du set : base locale + fetch du set complet en ligne. */
+async function searchBySetPrefix(rawPrefix: string): Promise<YgoCard[]> {
+  const prefix = fixSetCodePrefix(rawPrefix).split("-")[0];
+  const local = searchLocalBySetCode(prefix + "-");
+
+  // Complète avec le set entier depuis YGOProDeck (cartes stockées → dispo offline ensuite)
+  try {
+    const setsRes = await fetch("https://db.ygoprodeck.com/api/v7/cardsets.php");
+    if (setsRes.ok) {
+      const sets = (await setsRes.json()) as { set_name: string; set_code: string }[];
+      const setName = sets.find((s) => (s.set_code || "").toUpperCase() === prefix)?.set_name;
+      if (setName) {
+        const cards = await fetchCards(`${BASE_URL}?cardset=${encodeURIComponent(setName)}`);
+        if (cards.length) {
+          const byId = new Map<number, YgoCard>();
+          for (const c of [...local, ...cards]) if (!byId.has(c.id)) byId.set(c.id, c);
+          return [...byId.values()].sort(bySetNumber(prefix));
+        }
+      }
+    }
+  } catch {}
+  return local.sort(bySetNumber(prefix));
+}
+
 export async function searchCards(
   query: string,
   lang: string = "fr"
 ): Promise<YgoCard[]> {
   const trimmed = query.trim();
   if (!trimmed) return [];
+
+  // 0a. Préfixe de set ("DUAD-", "DUAD-FR") → liste tout le set (local + en ligne)
+  const prefixMatch = trimmed.match(/^([A-Z0-9]{2,5})-([A-Z]{0,2})$/i);
+  if (prefixMatch) {
+    const results = await searchBySetPrefix(trimmed.toUpperCase());
+    if (results.length > 0) return results;
+  }
 
   // 0. Check if query looks like a set code (e.g. SGX3-FRS16, SBCB-FR001, AGOV-FRO66)
   const setCodeMatch = trimmed.match(/[A-Z0-9]{2,5}-[A-Z]{2}[A-Z0-9]?[0-9O]{2,3}/i);
@@ -171,7 +242,8 @@ export async function searchCards(
     }
   }
 
-  return [];
+  // 6. Dernier recours : base locale (hors-ligne, ou carte connue de nous seuls)
+  return searchLocalByName(trimmed);
 }
 
 async function fetchCards(url: string): Promise<YgoCard[]> {
@@ -180,7 +252,7 @@ async function fetchCards(url: string): Promise<YgoCard[]> {
     if (!res.ok) return [];
     const json: YgoApiResponse = await res.json();
     const cards = json.data || [];
-    cards.forEach(cacheCard);
+    cards.forEach((c) => cacheCard(c));
     return cards;
   } catch {
     return [];
@@ -243,14 +315,30 @@ export async function getCardsByArchetype(
   // We merge them so cards without FR translation (e.g. First Penguin) still appear,
   // while keeping FR names for the cards that have them.
   const enUrl = `${BASE_URL}?archetype=${encodeURIComponent(archetype)}`;
-  if (lang === "en") return fetchCards(enUrl);
-
   const frUrl = `${BASE_URL}?archetype=${encodeURIComponent(archetype)}&language=${lang}`;
-  const [frCards, enCards] = await Promise.all([fetchCards(frUrl), fetchCards(enUrl)]);
+  const [frCards, enCards] =
+    lang === "en"
+      ? [[], await fetchCards(enUrl)]
+      : await Promise.all([fetchCards(frUrl), fetchCards(enUrl)]);
 
   const merged = new Map<number, YgoCard>();
   for (const c of enCards) merged.set(c.id, c);
   for (const c of frCards) merged.set(c.id, c); // FR overrides EN when available
+
+  // Cartes LIÉES (citées dans les textes officiels, ex Glass Slippers → Golden Castle
+  // of Stromberg) : présentes dans notre data locale mais pas dans l'archétype officiel.
+  try {
+    const archetypeCards = require("../data/archetype-cards.json") as Record<string, string[]>;
+    const have = new Set([...merged.values()].map((c) => c.name_en || c.name));
+    const extras = (archetypeCards[archetype] || []).filter((n) => !have.has(n));
+    for (const name of extras) {
+      const en = await getCardByExactName(name, "en"); // nos données sont en anglais
+      if (!en) continue;
+      const fr = lang !== "en" ? (await fetchCards(`${BASE_URL}?id=${en.id}&language=${lang}`))[0] : undefined;
+      merged.set(en.id, fr || en);
+    }
+  } catch {}
+
   return [...merged.values()];
 }
 

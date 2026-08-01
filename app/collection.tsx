@@ -56,7 +56,7 @@ export default function CollectionScreen() {
     if (filter === "archetype" && selectedArchetype) {
       setLoadingArchetype(true);
       getCardsByArchetype(selectedArchetype).then((cards) => {
-        cards.forEach(storeCard);
+        cards.forEach((c) => storeCard(c));
         setArchetypeCards(cards);
         setLoadingArchetype(false);
       });
