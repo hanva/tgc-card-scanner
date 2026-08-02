@@ -159,6 +159,28 @@ async function searchBySetPrefix(rawPrefix: string): Promise<YgoCard[]> {
   return local.sort(bySetNumber(prefix));
 }
 
+/**
+ * Fusionne résultats locaux + réseau pour une recherche PAR NOM.
+ * Indispensable pour les cartes récentes : YGOProDeck FR peut renvoyer des résultats
+ * partiels (ex "printemps" → 3 cartes mais PAS "Printemps"/Spring, absente de leur FR)
+ * qui masqueraient une carte pourtant déjà connue de la base locale.
+ * Correspondance exacte en tête, dédup par nom (préférence aux fiches réseau, id > 0).
+ */
+function mergeWithLocal(local: YgoCard[], network: YgoCard[], query: string): YgoCard[] {
+  const q = query.trim().toLowerCase();
+  const key = (c: YgoCard) => (c.name_en || c.name || "").toLowerCase();
+  const byKey = new Map<string, YgoCard>();
+  for (const c of local) byKey.set(key(c), c);
+  for (const c of network) {
+    const k = key(c);
+    const prev = byKey.get(k);
+    if (!prev || (prev.id < 0 && c.id > 0)) byKey.set(k, c); // fiche réseau > fiche Yugipedia locale
+  }
+  const exact = (c: YgoCard) =>
+    c.name?.toLowerCase() === q || c.name_en?.toLowerCase() === q ? 0 : 1;
+  return [...byKey.values()].sort((a, b) => exact(a) - exact(b));
+}
+
 export async function searchCards(
   query: string,
   lang: string = "fr"
@@ -185,17 +207,24 @@ export async function searchCards(
     if (setResults.length > 0) return setResults;
   }
 
+  // Résultats de la base locale, fusionnés dans TOUS les retours par nom
+  // (une carte déjà scannée doit toujours ressortir, même si l'API FR est incomplète).
+  const localResults = searchLocalByName(trimmed);
+
   // 1. Try fuzzy search in French
   const frResults = await fetchCards(
     `${BASE_URL}?fname=${encodeURIComponent(trimmed)}&language=${lang}&num=20&offset=0`
   );
-  if (frResults.length > 0) return frResults;
+  if (frResults.length > 0 || localResults.length > 0) {
+    const merged = mergeWithLocal(localResults, frResults, trimmed);
+    if (merged.length > 0) return merged;
+  }
 
   // 2. Fallback: search Yugipedia FIRST (for Skill Cards and cards missing from YGOProDeck)
   // This catches cards like "Ciel Nuageux de Gris" that have no FR translation in YGOProDeck
   try {
     const yugipediaResults = await searchYugipedia(trimmed);
-    if (yugipediaResults.length > 0) return yugipediaResults;
+    if (yugipediaResults.length > 0) return mergeWithLocal(localResults, yugipediaResults, trimmed);
   } catch {
     // Silently fail
   }
