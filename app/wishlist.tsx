@@ -108,6 +108,7 @@ export default function WishlistScreen() {
       </View>
       <Text className="text-gray-500 text-[11px] px-4 mb-1 leading-4">
         Copie un archétype/perso (bouton dans chaque titre) ou tout, puis colle dans cardmarket › Mes souhaits › « Add Deck List » (150 max/liste).
+        {"\n"}💡 Après l'import : tout cocher › Modifier la sélection › Langues = FR + EN (sinon le Shopping Wizard propose toutes les langues).
       </Text>
 
       {total === 0 ? (
