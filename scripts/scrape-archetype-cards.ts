@@ -254,7 +254,12 @@ async function addCitedRelatives(result: Record<string, string[]>): Promise<void
   }
 
   const QUOTE = /"([^"]+)"/g;
-  const citedBy = new Map<string, Set<string>>(); // carte candidate → archétypes qui la lient
+  // carte candidate → (archétype → nombre de citations) : le POIDS départage les liens
+  const citedBy = new Map<string, Map<string, number>>();
+  const bump = (cardName: string, a: string) => {
+    const m = citedBy.get(cardName) || citedBy.set(cardName, new Map()).get(cardName)!;
+    m.set(a, (m.get(a) || 0) + 1);
+  };
 
   // Sens 1 : un membre cite la carte dans son texte
   for (const [a, names] of Object.entries(result)) {
@@ -265,7 +270,7 @@ async function addCitedRelatives(result: Record<string, string[]>): Promise<void
         const q = m[1];
         const qc = byName.get(q);
         if (!qc || qc.archetype || memberOf.has(q)) continue;
-        (citedBy.get(q) || citedBy.set(q, new Set()).get(q)!).add(a);
+        bump(q, a);
       }
     }
   }
@@ -274,19 +279,24 @@ async function addCitedRelatives(result: Record<string, string[]>): Promise<void
     if (c.archetype || memberOf.has(c.name) || !c.desc) continue;
     for (const m of c.desc.matchAll(QUOTE)) {
       const archs = memberOf.get(m[1]);
-      if (archs) for (const a of archs) (citedBy.get(c.name) || citedBy.set(c.name, new Set()).get(c.name)!).add(a);
+      if (archs) for (const a of archs) bump(c.name, a);
     }
   }
 
+  // Un seul lien par carte : on garde l'archétype au lien le plus FORT (max de citations).
+  // Égalité parfaite entre 2 → on garde les deux (ex Destined Rivals cite autant
+  // Blue-Eyes que Dark Magician, trancher serait arbitraire). 3+ archétypes → générique, exclu.
   let added = 0;
-  for (const [cardName, archs] of citedBy) {
-    if (archs.size > 2) continue; // cité par 3+ archétypes → générique, on exclut
-    for (const a of archs) {
+  for (const [cardName, weights] of citedBy) {
+    if (weights.size > 2) continue;
+    const max = Math.max(...weights.values());
+    const best = [...weights.entries()].filter(([, w]) => w === max).map(([a]) => a);
+    for (const a of best) {
       if (!result[a].includes(cardName)) {
         result[a].push(cardName);
         result[a].sort();
         added++;
-        console.log(`  + ${cardName} → ${a}`);
+        console.log(`  + ${cardName} → ${a}${best.length > 1 ? " (égalité)" : ""}`);
       }
     }
   }
