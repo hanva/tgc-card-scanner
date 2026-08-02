@@ -176,8 +176,10 @@ function parseWikitext(wikitext: string): {
     desc: desc?.replace(/\[\[|\]\]/g, ""),
     descFr: descFr?.replace(/\[\[|\]\]/g, ""),
     type: types.includes("Skill") ? "Skill Card" : "Card",
+    // Special:FilePath suit les redirections vers le vrai fichier (le format
+    // /thumb/<nom> sans hash MD5 renvoyait 404 → images jamais chargées).
     imageUrl: image
-      ? `https://ms.yugipedia.com/thumb/${encodeURIComponent(image)}/300px-${encodeURIComponent(image)}`
+      ? `https://yugipedia.com/wiki/Special:FilePath/${encodeURIComponent(image.replace(/\s+/g, "_"))}`
       : undefined,
   };
 }

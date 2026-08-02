@@ -240,7 +240,9 @@ export async function searchCards(
     // Aucune correspondance EXACTE ? Le nom FR est peut-être une carte récente absente
     // du FR de YGOProDeck (ex "printemps" → Spring) → résolution Yugipedia "French name".
     const q = trimmed.toLowerCase();
-    const hasExact = merged.some((c) => c.name?.toLowerCase() === q || c.name_en?.toLowerCase() === q);
+    // id < 0 = fiche Yugipedia minimale (image/données pauvres) → ne bloque pas la résolution,
+    // pour qu'une vraie fiche YGOProDeck vienne la remplacer.
+    const hasExact = merged.some((c) => c.id > 0 && (c.name?.toLowerCase() === q || c.name_en?.toLowerCase() === q));
     if (!hasExact) {
       const viaFr = await resolveFrenchExact(trimmed);
       if (viaFr && !merged.some((c) => c.id === viaFr.id)) merged.unshift(viaFr);
@@ -407,7 +409,8 @@ export async function getCardByExactName(
   name: string,
   lang: string = "fr"
 ): Promise<YgoCard | null> {
-  const url = `${BASE_URL}?name=${encodeURIComponent(name)}&language=${lang}`;
+  // ⚠️ L'API rejette language=en : pour l'anglais il faut OMETTRE le paramètre.
+  const url = `${BASE_URL}?name=${encodeURIComponent(name)}${lang === "en" ? "" : `&language=${lang}`}`;
   try {
     const res = await fetch(url);
     if (!res.ok) return null;

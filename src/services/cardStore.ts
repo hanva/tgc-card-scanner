@@ -75,6 +75,14 @@ export function storeCard(card: YgoCard, extraSetCode?: string) {
   const merged: YgoCard = prev ? { ...prev, ...card, card_sets: card.card_sets || prev.card_sets } : card;
   store.set(String(card.id), merged);
   indexCard(merged, extraSetCode);
+  // Une vraie fiche (id > 0) purge les doublons Yugipedia (id < 0) du même nom :
+  // évite qu'une fiche minimale (image cassée) reste devant la bonne.
+  if (merged.id > 0) {
+    const key = (merged.name_en || merged.name || "").toLowerCase();
+    for (const [id, c] of store) {
+      if (c.id < 0 && (c.name_en || c.name || "").toLowerCase() === key) store.delete(id);
+    }
+  }
   scheduleSave();
 }
 
