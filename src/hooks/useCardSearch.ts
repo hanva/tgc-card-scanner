@@ -23,9 +23,7 @@ export function useCardSearch() {
     setLoading(true);
     setError(null);
 
-    // Set codes should search immediately (no debounce)
-    const isSetCode = /[A-Z0-9]{2,5}-[A-Z]{2}/i.test(query.trim());
-    const delay = isSetCode ? 100 : 400;
+    const delay = 400;
 
     debounceRef.current = setTimeout(async () => {
       const currentId = ++requestIdRef.current;
