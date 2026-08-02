@@ -347,3 +347,37 @@ function hashCode(s: string): number {
   for (let i = 0; i < s.length; i++) h = (Math.imul(31, h) + s.charCodeAt(i)) | 0;
   return h || 1;
 }
+
+/**
+ * Résout un nom FR EXACT vers le nom anglais de la carte via la propriété
+ * sémantique "French name" de Yugipedia. C'est LE chemin fiable pour les cartes
+ * récentes absentes du FR de YGOProDeck (ex "Printemps" → "Spring").
+ * Sensible à la casse → on tente plusieurs variantes (règle titre française :
+ * majuscule partout sauf articles/prépositions). Accents requis.
+ */
+const FR_STOPWORDS = new Set(["de", "du", "des", "le", "la", "les", "l", "d", "et", "a", "à", "au", "aux", "en", "sur", "sous", "pour", "sans", "avec", "par", "un", "une", "ou"]);
+
+export async function resolveFrenchNameToEnName(frName: string): Promise<string | null> {
+  const raw = frName.trim();
+  if (raw.length < 3) return null;
+  const words = raw.toLowerCase().split(/\s+/);
+  const frTitle = words
+    .map((w, i) => (i > 0 && FR_STOPWORDS.has(w) ? w : w.charAt(0).toUpperCase() + w.slice(1)))
+    .join(" ");
+  const firstUpper = raw.charAt(0).toUpperCase() + raw.slice(1);
+  const variants = [...new Set([raw, firstUpper, frTitle])];
+
+  const query = `[[French name::${variants.join("||")}]]`;
+  const url = `${API_BASE}?action=ask&query=${encodeURIComponent(query)}&format=json`;
+  try {
+    const res = await fetch(url);
+    if (!res.ok) return null;
+    const json = await res.json();
+    const titles = Object.keys(json?.query?.results || {});
+    // Écarte les variantes de jeu ("(Master Duel)", "(anime)", …) au profit de la page carte de base
+    const base = titles.find((t) => !/\((Master Duel|anime|manga|Duel Links|Rush Duel)\)/i.test(t));
+    return base || null;
+  } catch {
+    return null;
+  }
+}

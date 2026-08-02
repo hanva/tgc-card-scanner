@@ -1,5 +1,5 @@
 import { YgoCard, YgoApiResponse } from "../types/card";
-import { searchYugipedia, resolveSetCodeToName, getYugipediaCardByName } from "./yugipedia";
+import { searchYugipedia, resolveSetCodeToName, getYugipediaCardByName, resolveFrenchNameToEnName } from "./yugipedia";
 import { storeCard, searchLocalBySetCode, searchLocalByName } from "./cardStore";
 
 const BASE_URL = "https://db.ygoprodeck.com/api/v7/cardinfo.php";
@@ -181,6 +181,26 @@ function mergeWithLocal(local: YgoCard[], network: YgoCard[], query: string): Yg
   return [...byKey.values()].sort((a, b) => exact(a) - exact(b));
 }
 
+/** Nom FR exact → carte complète (Yugipedia "French name" → fiche YGOProDeck EN + nom FR). */
+async function resolveFrenchExact(frName: string): Promise<YgoCard | null> {
+  if (frName.trim().length < 3 || /^[A-Z0-9]{2,5}-/i.test(frName)) return null;
+  const enName = await resolveFrenchNameToEnName(frName);
+  if (!enName) return null;
+  const wikiCard = await getYugipediaCardByName(enName);
+  const card = await getCardByExactName(enName, "en");
+  if (card) {
+    card.name_en = card.name_en || card.name;
+    if (wikiCard?.name && wikiCard.name !== card.name_en) card.name = wikiCard.name; // nom FR
+    cacheCard(card);
+    return card;
+  }
+  if (wikiCard) {
+    cacheCard(wikiCard);
+    return wikiCard;
+  }
+  return null;
+}
+
 export async function searchCards(
   query: string,
   lang: string = "fr"
@@ -217,8 +237,20 @@ export async function searchCards(
   );
   if (frResults.length > 0 || localResults.length > 0) {
     const merged = mergeWithLocal(localResults, frResults, trimmed);
+    // Aucune correspondance EXACTE ? Le nom FR est peut-être une carte récente absente
+    // du FR de YGOProDeck (ex "printemps" → Spring) → résolution Yugipedia "French name".
+    const q = trimmed.toLowerCase();
+    const hasExact = merged.some((c) => c.name?.toLowerCase() === q || c.name_en?.toLowerCase() === q);
+    if (!hasExact) {
+      const viaFr = await resolveFrenchExact(trimmed);
+      if (viaFr && !merged.some((c) => c.id === viaFr.id)) merged.unshift(viaFr);
+    }
     if (merged.length > 0) return merged;
   }
+
+  // 1b. Rien du tout côté FR/local : tentative nom FR exact (cartes récentes)
+  const viaFr = await resolveFrenchExact(trimmed);
+  if (viaFr) return [viaFr];
 
   // 2. Fallback: search Yugipedia FIRST (for Skill Cards and cards missing from YGOProDeck)
   // This catches cards like "Ciel Nuageux de Gris" that have no FR translation in YGOProDeck
