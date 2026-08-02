@@ -413,6 +413,7 @@
     "World of Spirits"
   ],
   "Ancient Gear": [
+    "Ancient Gear",
     "Ancient Gear Advance",
     "Ancient Gear Ballista",
     "Ancient Gear Beast",
@@ -735,7 +736,8 @@
     "Metaphys Armed Dragon",
     "Ojama Pajama",
     "Ojamatch",
-    "Pile Armed Dragon"
+    "Pile Armed Dragon",
+    "White Veil"
   ],
   "Aroma": [
     "Aroma Blend",
@@ -1049,10 +1051,12 @@
     "Black Luster Soldier - Sacred Soldier",
     "Black Luster Soldier - Soldier of Chaos",
     "Black Luster Soldier - Super Soldier",
+    "Dragon Master Magia",
     "Envoy of Chaos",
     "Evening Twilight Knight",
     "Gateway to Chaos",
     "Primal Seed",
+    "Ritual of Black Mastery",
     "Super Soldier Rebirth",
     "Super Soldier Ritual",
     "Super Soldier Shield",
@@ -1191,10 +1195,14 @@
     "Blue-Eyes White Dragon, the White Phantom Beast",
     "Burst Stream of Destruction",
     "Chaos Form",
+    "Chronicle Magician",
+    "Chronicle Sorceress",
     "Deep-Eyes White Dragon",
     "Deep-Eyes White Dragon, the Blue Abyss",
+    "Destined Rivals",
     "Dictator of D.",
     "Dragon Master Knight",
+    "Dragon Master Magia",
     "Dragon Spirit of White",
     "Heart of the Blue-Eyes",
     "Kaibaman",
@@ -1205,6 +1213,7 @@
     "Majesty with Eyes of Blue",
     "Malefic Blue-Eyes White Dragon",
     "Master with Eyes of Blue",
+    "Mausoleum of White",
     "Neo Blue-Eyes Ultimate Dragon",
     "Neo Kaiser Sea Horse",
     "Neutron Blast",
@@ -1214,6 +1223,7 @@
     "Rage with Eyes of Blue",
     "Roar of the Blue-Eyed Dragons",
     "Sage with Eyes of Blue",
+    "Strength in Unity",
     "The Ultimate Creature of Destruction",
     "The White Stone of Ancients",
     "The White Stone of Legend",
@@ -1745,6 +1755,7 @@
   ],
   "Contact": [
     "Dark Contact",
+    "Dark Fusion",
     "Favorite Contact",
     "Instant Contact"
   ],
@@ -1962,6 +1973,7 @@
     "Evolution End Burst",
     "Overload Fusion",
     "Photon Generator Unit",
+    "Power Bond",
     "Proto-Cyber Dragon",
     "Super Strident Blaze"
   ],
@@ -1980,7 +1992,8 @@
     "Cyberdark Realm",
     "Cyberdark Style (Skill Card)",
     "Cyberdarkness Dragon",
-    "Cybernetic Horizon"
+    "Cybernetic Horizon",
+    "Power Bond"
   ],
   "Cyclone": [
     "Lightning Storm",
@@ -2140,7 +2153,10 @@
     "Apprentice Illusion Magician",
     "Black Magic Ritual",
     "Bond Between Teacher and Student",
+    "Buster Blader",
     "Chaos Scepter Blast",
+    "Chronicle Magician",
+    "Chronicle Sorceress",
     "Dark Burning Attack",
     "Dark Burning Magic",
     "Dark Cavalry",
@@ -2165,11 +2181,14 @@
     "Dark Paladin",
     "Dark Sage",
     "Dedication through Light and Darkness",
+    "Destined Rivals",
     "Dimension Conjurer",
     "Eternal Soul",
+    "Flame Swordsman",
     "Illusion Magic",
     "Knight's Title",
     "Magic Formula",
+    "Magical Dimension",
     "Magician Navigation",
     "Magician of Black Chaos",
     "Magician of Black Chaos MAX",
@@ -2185,10 +2204,12 @@
     "Mirage Knight",
     "Palladium Oracle Mahad",
     "Palladium Oracle Mana",
+    "Ritual of Black Mastery",
     "Sage's Stone",
     "Secrets of Dark Magic",
     "Skilled Dark Magician",
     "Soul Servant",
+    "Strength in Unity",
     "The Dark Magicians",
     "The Eye of Timaeus",
     "Thousand Knives",
@@ -2407,6 +2428,7 @@
     "Over Destiny"
   ],
   "Destruction Sword": [
+    "Buster Blader",
     "Buster Blader, the Destruction Swordmaster",
     "Buster Blader, the Dragon Destroyer Swordsman",
     "Buster Dragon",
@@ -2876,6 +2898,7 @@
     "It's No Monster, It's a God!",
     "Magical Trick Mirror",
     "Millennium Revelation",
+    "Monster Reborn",
     "Obelisk the Tormentor",
     "Ra's Disciple",
     "Reactor Slime",
@@ -3116,6 +3139,7 @@
     "Endymion, the Mighty Master of Magic",
     "Genni, the Maid of Endymion",
     "Magical Citadel of Endymion",
+    "Magical Dimension",
     "Magister of Endymion",
     "Reflection of Endymion",
     "Regulus' Arrow",
@@ -3164,6 +3188,7 @@
     "Zerrziel, Ruler of the Evil Eyed"
   ],
   "Evil HERO": [
+    "Dark Fusion",
     "Evil HERO Adusted Gold",
     "Evil HERO Dark Gaia",
     "Evil HERO Darkest Knight",
@@ -3241,6 +3266,7 @@
     "Agido the Ancient Sentinel",
     "Blast Held by Destiny",
     "Exchange of Despair and Hope",
+    "Exchange of the Spirit",
     "Kelbek the Ancient Vanguard",
     "Keldo the Sacred Protector",
     "Mudora the Sword Oracle"
@@ -3500,6 +3526,7 @@
     "Fighting Flame Sword",
     "Fighting Flame Swordsman",
     "Flame Swordsdance",
+    "Flame Swordsman",
     "Flame Swordsrealm",
     "Mirage Swordsman",
     "Salamandra",
@@ -3714,6 +3741,7 @@
   ],
   "Fusion": [
     "Ancient Fusion",
+    "Ancient Gear",
     "Double Fusion",
     "Fusion Duplication",
     "Ghost Fusion",
@@ -3872,6 +3900,7 @@
     "Garbage Golem"
   ],
   "Gate Guardian": [
+    "Dark Element",
     "Elements of Thunder, Water, and Wind",
     "Gate Guardian",
     "Gate Guardian of Thunder and Wind",
@@ -4343,6 +4372,7 @@
     "A Cat of Ill Omen",
     "An Owl of Luck",
     "Charm of Shabti",
+    "Exchange of the Spirit",
     "Gravekeeper's Ambusher",
     "Gravekeeper's Assailant",
     "Gravekeeper's Cannonholder",
@@ -4432,6 +4462,7 @@
     "Arsenal Summoner",
     "Behold, Gate Guardian!",
     "Butterfly Dagger - Elma",
+    "Dark Element",
     "Dark Guardian",
     "Fairy Guardian",
     "Goyo Guardian",
@@ -5148,6 +5179,7 @@
     "Thunder King, the Lightningstrike Kaiju"
   ],
   "Kairyu-Shin": [
+    "Kairyu-Shin",
     "Kairyu-Shin's Dark Reef",
     "Ocean Dragon Lord - Kairyu-Shin"
   ],
@@ -5372,6 +5404,7 @@
     "Linguriboh",
     "Linkuriboh",
     "Magikuriboh",
+    "Monster Reborn",
     "Multiply",
     "Performapal Classikuriboh",
     "Rainbow Kuriboh",
@@ -6061,6 +6094,7 @@
     "Vertical Landing"
   ],
   "Medius": [
+    "Theorealize",
     "Theorealize Medius"
   ],
   "Megalith": [
@@ -6631,6 +6665,7 @@
     "Blue Dragon Ninja",
     "Crimson Ninja",
     "Earth Armor Ninja",
+    "Fairy Tale Prologue: Journey's Dawn",
     "Flame Armor Ninja",
     "Fuhma Shuriken",
     "Goe Goe the Gallant Ninja",
@@ -6696,6 +6731,7 @@
     "Avalon",
     "Celestial Sword - Eatos",
     "Emperor Charles the Great",
+    "Fairy Tale Prologue: Journey's Dawn",
     "Glory of the Noble Knights",
     "Gwenhwyfar, Queen of Noble Arms",
     "Heritage of the Chalice",
@@ -6776,6 +6812,7 @@
     "Chef de Nouvelles",
     "Confiras de Nouvelles",
     "Foie Glasya de Nouvelles",
+    "Hungry Burger",
     "Nouvelles Recipe Book \"Recettes de Nouvellez\"",
     "Nouvelles Restaurant \"At Table\"",
     "Poeltis de Nouvelles",
@@ -7286,6 +7323,7 @@
     "Prohibited Power Patron Portal - Terminus",
     "Prohibitive Power Patron Purview - Vilaea",
     "Purification Power Patron",
+    "Theorealize",
     "Vidolium the Unstable Power Patron of Unity"
   ],
   "Power Tool": [
@@ -7555,13 +7593,14 @@
     "Rainbow Bridge of the Heart"
   ],
   "Rank-Up-Magic": [
+    "Hyper Rank-Up-Magic Ultimate Force",
     "Hyper Rank-Up-Magic Utopiforce",
-    "Hyper-Rank-Up-Magic Ultimate Force",
     "Rank-Up-Magic Magical Force",
     "Rank-Up-Magic Zexal Force"
   ],
   "Recipe": [
     "Chef's Special Recipe",
+    "Hungry Burger",
     "Recette de Personnel (Staff Recipe)",
     "Recette de Poisson (Fish Recipe)",
     "Recette de Viande (Meat Recipe)",
@@ -8138,6 +8177,7 @@
     "Scrapyard"
   ],
   "Scrap-Iron": [
+    "Crimson Dragon",
     "Scrap-Iron Sacred Statue"
   ],
   "Sea Stealth": [
@@ -8923,6 +8963,7 @@
     "Symphonic Warrior Synthess"
   ],
   "Synchro": [
+    "Crimson Dragon",
     "One-Way Synchro",
     "Revolution Synchron",
     "Synchro Creed",
@@ -9477,6 +9518,7 @@
     "Fortress Whale",
     "Fortress Whale's Oath",
     "Fury of Kairyu-Shin",
+    "Kairyu-Shin",
     "Lemuria, the Forgotten City",
     "Levia-Dragon - Daedalus",
     "Magellanica, the Deep Sea City",
@@ -9979,7 +10021,8 @@
     "Woes of the White Forest"
   ],
   "White Knight": [
-    "White Knight Lord"
+    "White Knight Lord",
+    "White Veil"
   ],
   "Wicked God": [
     "Divine Evolution",
@@ -10064,6 +10107,7 @@
     "Witchcrafter Walpurgis"
   ],
   "with Eyes of Blue": [
+    "Mausoleum of White",
     "Spirit with Eyes of Blue",
     "Vision with Eyes of Blue",
     "Wishes for Eyes of Blue"

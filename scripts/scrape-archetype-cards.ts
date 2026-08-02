@@ -232,8 +232,10 @@ async function fetchFromFandom(archetype: string): Promise<string[]> {
  *
  * Règle STRICTE (pas de matching par nom, uniquement le texte officiel) :
  *  - la carte candidate n'a AUCUN archétype officiel et n'est membre d'aucun résultat ;
- *  - elle est citée par (ou cite) les membres d'EXACTEMENT UN archétype
+ *  - elle est citée par (ou cite) les membres d'AU PLUS DEUX archétypes
  *    → les staples génériques cités partout sont exclus d'office.
+ *    (Mesuré : ≤2 ajoute 22 cartes quasi toutes légitimes — Buster Blader → Dark Magician
+ *    + Destruction Sword, Destined Rivals → Blue-Eyes + Dark Magician… ; à 3+ ça dégénère.)
  */
 async function addCitedRelatives(result: Record<string, string[]>): Promise<void> {
   console.log("\nFetching full card dump for citation pass...");
@@ -278,13 +280,14 @@ async function addCitedRelatives(result: Record<string, string[]>): Promise<void
 
   let added = 0;
   for (const [cardName, archs] of citedBy) {
-    if (archs.size !== 1) continue; // cité par 2+ archétypes → générique, on exclut
-    const a = [...archs][0];
-    if (!result[a].includes(cardName)) {
-      result[a].push(cardName);
-      result[a].sort();
-      added++;
-      console.log(`  + ${cardName} → ${a}`);
+    if (archs.size > 2) continue; // cité par 3+ archétypes → générique, on exclut
+    for (const a of archs) {
+      if (!result[a].includes(cardName)) {
+        result[a].push(cardName);
+        result[a].sort();
+        added++;
+        console.log(`  + ${cardName} → ${a}`);
+      }
     }
   }
   console.log(`Citation pass: ${added} related cards added`);
