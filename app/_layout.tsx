@@ -5,9 +5,12 @@ import { StatusBar } from "expo-status-bar";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { ScanProvider } from "../src/services/scanController";
 import { hydrateCardStore } from "../src/services/cardStore";
+import { backfillCardDb } from "../src/services/cardBackfill";
 
 LogBox.ignoreAllLogs(true);
-hydrateCardStore(); // recharge la base locale de cartes (index par set code)
+// Recharge la base locale de cartes puis rattrape les fiches (codes de set inclus)
+// des cartes déjà scannées en collection. Idempotent, en arrière-plan.
+hydrateCardStore().then(() => backfillCardDb());
 
 export default function RootLayout() {
   return (
